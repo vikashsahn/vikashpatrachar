@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="en" class="desktop-view not-mobile-device text-size-normal anon">
+  <head>
+    <meta charset="utf-8">
+    <title>Learn how to Develop a Gaming app like Candy Crush Using JavaScript - Learning Hub - Gaming - Open Weaver</title>
+    <meta name="description" content="This kandi kit for Candy Crush (one of the most popular games), has been rewritten using the Phaser HTML5 game engine along with Typescript language. AngularJs is also used for creating game directives, so they can be&amp;hellip;">
+    <meta name="discourse_theme_id" content="1">
+    <meta name="discourse_current_homepage" content="categories">
+
+    <meta name="generator" content="Discourse 3.1.0.beta2 - https://github.com/discourse/discourse version cb4a22b34ffdbfd6846af1257bb5a2fdf8dc49f3">
+<link rel="icon" type="image/png" href="https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/cdd2e4fbb8c8985e4589b133bc1d49d44e366130_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/cdd2e4fbb8c8985e4589b133bc1d49d44e366130_2_180x180.png">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#43474c">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541" />
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://community.openweaver.com/opensearch.xml" title="Open Weaver Search">
+
+    
+
+      <meta name="fragment" content="!">
+
+
+    
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/start-discourse-828d11e331bbb2c63061d9ce5c7616d6d724c717cf56f1b7090efcde9ad47664.br.js" as="script">
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/browser-update-331e86c77ddeff594308c27802669aeffae5f4ffddf9565a44e67d119278ae51.br.js" as="script">
+    <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/browser-detect-18068a2d9ee3b1943a0bea70aa916d391f1dc6c03eeb7917ead5d6e0a637321a.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/browser-detect-18068a2d9ee3b1943a0bea70aa916d391f1dc6c03eeb7917ead5d6e0a637321a.br.js"></script>
+
+
+    <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/locales/en-462e53716717847bfd2327e44bcd87a41f1f233baa51afb1a99dbe357fd11ed3.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/locales/en-462e53716717847bfd2327e44bcd87a41f1f233baa51afb1a99dbe357fd11ed3.br.js"></script>
+
+    <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/vendor-5cf79ec88b99debd3389a2478c13cd3be17a760c0aa1ae054ff946928baab949.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/vendor-5cf79ec88b99debd3389a2478c13cd3be17a760c0aa1ae054ff946928baab949.br.js"></script>
+
+<link rel="preload" href="https://global.discourse-cdn.com/business7/assets/chunk.13.3ea54e76d8a870a97956-159e41486b2b9f0c3472df6487d8adf2d0c95ce47597c4c3c683365a5b63c8db.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/chunk.13.3ea54e76d8a870a97956-159e41486b2b9f0c3472df6487d8adf2d0c95ce47597c4c3c683365a5b63c8db.br.js"></script>
+
+<link rel="preload" href="https://global.discourse-cdn.com/business7/assets/chunk.143.d0263a9558a16acd6ccf-a9980b78ade60c5ba910ccddde7e0ed44dae64be8d12e70c86c2667503ea5de9.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/chunk.143.d0263a9558a16acd6ccf-a9980b78ade60c5ba910ccddde7e0ed44dae64be8d12e70c86c2667503ea5de9.br.js"></script>
+
+    <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/discourse-ab24199704c776056519db938aeceb5f58adf941737381d1c14dfa20f5e2d895.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/discourse-ab24199704c776056519db938aeceb5f58adf941737381d1c14dfa20f5e2d895.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/chat-9d49d665d56f9dd7dcd02cfac9bac7bd10de3963178269a1482674aea90de128.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/chat-9d49d665d56f9dd7dcd02cfac9bac7bd10de3963178269a1482674aea90de128.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-adplugin-af80bbef5d525592706bee95e759290cc72d782647f25143033baa2d37082c84.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-adplugin-af80bbef5d525592706bee95e759290cc72d782647f25143033baa2d37082c84.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-akismet-3a41281776c341f09b923101fcc8ebc858214a5f7950720344300a48a52fd885.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-akismet-3a41281776c341f09b923101fcc8ebc858214a5f7950720344300a48a52fd885.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-cakeday-35f2f0e122cd13b9b663986e08d7517e0ecf9f8611caf8d597467daae94b6987.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-cakeday-35f2f0e122cd13b9b663986e08d7517e0ecf9f8611caf8d597467daae94b6987.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-checklist-158bd15bedbb47ed5e91792280bd2a0e2623495d2508465d2a2bb0ddedd9ec23.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-checklist-158bd15bedbb47ed5e91792280bd2a0e2623495d2508465d2a2bb0ddedd9ec23.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-details-4cc313dcbef7c2a43d82c8d9cd301ad2bedc79dcb8f31645e1dd0a8b626ba7f3.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-details-4cc313dcbef7c2a43d82c8d9cd301ad2bedc79dcb8f31645e1dd0a8b626ba7f3.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-footnote-46ee3433bd8570ff50243dd1d1a4b098c10d93fbd0ae2ef4e25b83f17fa18b3d.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-footnote-46ee3433bd8570ff50243dd1d1a4b098c10d93fbd0ae2ef4e25b83f17fa18b3d.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-footnote_extra-7f7bb8e0891106317fe6883ba187d239709a385df2c386a4d9ab105732204444.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-footnote_extra-7f7bb8e0891106317fe6883ba187d239709a385df2c386a4d9ab105732204444.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-local-dates-6d7b1252dbe3614a3841c6e29729dc80846e30b9ed66f7d8aa9bdfcc7be264fd.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-local-dates-6d7b1252dbe3614a3841c6e29729dc80846e30b9ed66f7d8aa9bdfcc7be264fd.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-narrative-bot-4cf85d81804acc076fc2f587e4b1474e55808ac24ab19217564f0fa8d3271c99.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-narrative-bot-4cf85d81804acc076fc2f587e4b1474e55808ac24ab19217564f0fa8d3271c99.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-policy-b8dbb8296d0d056bc9aff9bafd5c98f3d058a06e705f19b78052fe33590371eb.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-policy-b8dbb8296d0d056bc9aff9bafd5c98f3d058a06e705f19b78052fe33590371eb.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-presence-3b38178511d2b7c3214307adb42bd1d0db87528b0eea60327b0542a2953f9767.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-presence-3b38178511d2b7c3214307adb42bd1d0db87528b0eea60327b0542a2953f9767.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-reactions-bbdeb065e398ed14283c462e6d552a1091f6019e3034d76d1bd0d0008ee4cb23.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-reactions-bbdeb065e398ed14283c462e6d552a1091f6019e3034d76d1bd0d0008ee4cb23.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-solved-e183518ad0fc216797a354cdadbf8f4fcdaa6167954035dc47ab5dd4300502bf.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-solved-e183518ad0fc216797a354cdadbf8f4fcdaa6167954035dc47ab5dd4300502bf.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-spoiler-alert-f81d12a773a4160e77844fb1b786c4b50c185b4f95b120a75bae280918d8aaf2.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-spoiler-alert-f81d12a773a4160e77844fb1b786c4b50c185b4f95b120a75bae280918d8aaf2.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-templates-e5746296fac575bec5cac776815efcb5f655868d27e0e19b2d76b86dafd4af0c.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-templates-e5746296fac575bec5cac776815efcb5f655868d27e0e19b2d76b86dafd4af0c.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/discourse-topic-voting-66027a617492aff6da7b96f1d31e881563b6144a08da777821f4c4232906c8e4.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/discourse-topic-voting-66027a617492aff6da7b96f1d31e881563b6144a08da777821f4c4232906c8e4.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/hosted-site-e75c5e7f451d7005ec5d4034b9bceecec3a419c4feeaf0e48b27831bd09d31e4.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/hosted-site-e75c5e7f451d7005ec5d4034b9bceecec3a419c4feeaf0e48b27831bd09d31e4.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/hosted-site_admin-528fbeffab3d0328fb3cc67689705c0d559a5917b3d05427ce225f4332f3c4e4.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/hosted-site_admin-528fbeffab3d0328fb3cc67689705c0d559a5917b3d05427ce225f4332f3c4e4.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/lazy-yt-37ba46caad39a8d451e22030fac3ba0c04d3c2aa5cf73544b9c23ec143dcbf99.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/lazy-yt-37ba46caad39a8d451e22030fac3ba0c04d3c2aa5cf73544b9c23ec143dcbf99.br.js"></script>
+
+      <link rel="preload" href="https://global.discourse-cdn.com/business7/assets/plugins/poll-b173398ae855023fa7edc3f56a4c509952048022aee0d350cc45419e004f4310.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/plugins/poll-b173398ae855023fa7edc3f56a4c509952048022aee0d350cc45419e004f4310.br.js"></script>
+
+
+
+
+      <link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/5b61bb45c0ee93ebaf8c86f270ed1185498abd11.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/5b61bb45c0ee93ebaf8c86f270ed1185498abd11.js?__ws=community.openweaver.com' data-theme-id='5'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/52b315f37e98bd71523e4cc4d5aaa75a328449a9.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/52b315f37e98bd71523e4cc4d5aaa75a328449a9.js?__ws=community.openweaver.com' data-theme-id='7'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/10e1aaf0490a76c76c726bbb31280e390c34922d.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/10e1aaf0490a76c76c726bbb31280e390c34922d.js?__ws=community.openweaver.com' data-theme-id='16'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/e2d9d94352cb860e13f0e3cec7a2cf8a8373da1c.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/e2d9d94352cb860e13f0e3cec7a2cf8a8373da1c.js?__ws=community.openweaver.com' data-theme-id='17'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/ff233e9dc8b94de981ad15cdb80047b6282c8ae4.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/ff233e9dc8b94de981ad15cdb80047b6282c8ae4.js?__ws=community.openweaver.com' data-theme-id='18'></script>
+
+      <link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/9c2366fe824a4516a9ea9ae34ea80b07f487eb48.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/9c2366fe824a4516a9ea9ae34ea80b07f487eb48.js?__ws=community.openweaver.com' data-theme-id='3'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/0ab73ca4d1745da36c8137100b22440eebd4ce91.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/0ab73ca4d1745da36c8137100b22440eebd4ce91.js?__ws=community.openweaver.com' data-theme-id='4'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/ea45a2f441a6a0694c8e6193d4ef367dcadacfb4.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/ea45a2f441a6a0694c8e6193d4ef367dcadacfb4.js?__ws=community.openweaver.com' data-theme-id='5'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/6fc85778d1bde3d3b4454fff593f4acfb15761b3.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/6fc85778d1bde3d3b4454fff593f4acfb15761b3.js?__ws=community.openweaver.com' data-theme-id='7'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/ffe5ac4c4119dcae653dda943b91147b19807016.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/ffe5ac4c4119dcae653dda943b91147b19807016.js?__ws=community.openweaver.com' data-theme-id='10'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/a1b9d3eb9438a8bd6ea8df2a57a91aec568601d0.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/a1b9d3eb9438a8bd6ea8df2a57a91aec568601d0.js?__ws=community.openweaver.com' data-theme-id='16'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/72014b3529606d7b42ed7ecee793de5c50b3c742.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/72014b3529606d7b42ed7ecee793de5c50b3c742.js?__ws=community.openweaver.com' data-theme-id='17'></script>
+
+<link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/db589bf8a2bd96e2e78be2248f74de2220215335.js?__ws=community.openweaver.com" as="script">
+<script defer src='https://sea2.discourse-cdn.com/business7/theme-javascripts/db589bf8a2bd96e2e78be2248f74de2220215335.js?__ws=community.openweaver.com' data-theme-id='18'></script>
+
+      <link rel="preload" href="https://sea2.discourse-cdn.com/business7/theme-javascripts/887c045fc3b7dabcfad486804079300d3087261c.js?__ws=community.openweaver.com" as="script">
+<script defer="" src="https://sea2.discourse-cdn.com/business7/theme-javascripts/887c045fc3b7dabcfad486804079300d3087261c.js?__ws=community.openweaver.com" data-theme-id="1"></script>
+
+
+    <meta id="data-google-tag-manager"
+  data-data-layer="{}"
+  data-nonce="446e99c6a1f7a5dee2859df3be726f43"
+  data-container-id="GTM-5H5VR96" />
+
+<link rel="preload" href="https://global.discourse-cdn.com/business7/assets/google-tag-manager-4fb0692abdb44812bf3be3c1ffff44b853ee3cd5650cf94bd3da2e2af499155d.br.js" as="script">
+<script defer src="https://global.discourse-cdn.com/business7/assets/google-tag-manager-4fb0692abdb44812bf3be3c1ffff44b853ee3cd5650cf94bd3da2e2af499155d.br.js"></script>
+
+
+    
+    <link id="manifest-link" rel="manifest" href=/manifest.webmanifest crossorigin="use-credentials">
+
+
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Learn how to Develop a Gaming app like Candy Crush Using JavaScript&#39;" href="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541.rss" />
+    <meta property="og:site_name" content="Open Weaver" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_1024x171.png" />
+<meta property="og:image" content="https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_1024x171.png" />
+<meta property="og:url" content="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541?utm_source=youtube&amp;utm_medium=cpc&amp;utm_campaign=promo_community&amp;utm_content=community_selfcertification&amp;utm_term=gaming_devs&amp;gclid=Cj0KCQiA0oagBhDHARIsAI-BbgcXzPU-z9F0YjcqR_OUxWeHJR9ex9n9DpiE2b6zwz3J5qP5r2HSGcIaArojEALw_wcB" />
+<meta name="twitter:url" content="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541?utm_source=youtube&amp;utm_medium=cpc&amp;utm_campaign=promo_community&amp;utm_content=community_selfcertification&amp;utm_term=gaming_devs&amp;gclid=Cj0KCQiA0oagBhDHARIsAI-BbgcXzPU-z9F0YjcqR_OUxWeHJR9ex9n9DpiE2b6zwz3J5qP5r2HSGcIaArojEALw_wcB" />
+<meta property="og:title" content="Learn how to Develop a Gaming app like Candy Crush Using JavaScript" />
+<meta name="twitter:title" content="Learn how to Develop a Gaming app like Candy Crush Using JavaScript" />
+<meta property="og:description" content="This kandi kit for Candy Crush (one of the most popular games), has been rewritten using the Phaser HTML5 game engine along with Typescript language. AngularJs is also used for creating game directives, so they can be easily included in the angular app.  We’ll be using TypeScript, Gulp and Webpack to build a fully-functional Candy Crush game.  Here is how you can build your own Candy Crush game through this course using the kandi 1-click solution kit. You will have a working model at the end ..." />
+<meta name="twitter:description" content="This kandi kit for Candy Crush (one of the most popular games), has been rewritten using the Phaser HTML5 game engine along with Typescript language. AngularJs is also used for creating game directives, so they can be easily included in the angular app.  We’ll be using TypeScript, Gulp and Webpack to build a fully-functional Candy Crush game.  Here is how you can build your own Candy Crush game through this course using the kandi 1-click solution kit. You will have a working model at the end ..." />
+<meta property="og:article:section" content="Learning Hub - Gaming" />
+<meta property="og:article:section:color" content="9B5EFF" />
+<meta property="og:article:tag" content="open-source-project" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="13 ❤" />
+<meta property="article:published_time" content="2022-09-30T15:19:35+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+
+    <script async src="/plugins/discourse-client-performance/javascripts/discourse-client-performance.js?v=0c36fe71be3bc175482bfab9d3eeb7243fca956f05fd3ad929e2ad607ab17d0b"></script>
+
+
+
+    <meta id="data-discourse-setup" data-cdn="https://sea2.discourse-cdn.com/business7" data-base-url="https://community.openweaver.com" data-base-uri="" data-environment="production" data-letter-avatar-version="5_f40856482fe1e45ac8f1605885140a2d" data-markdown-it-url="https://global.discourse-cdn.com/business7/assets/markdown-it-bundle-804f38cf8fa7094fac3b6fd7c9e0cfa17c6c954be40d47f89ce938b781b1a90b.br.js" data-service-worker-url="service-worker.js" data-default-locale="en" data-asset-version="bfadcd4e1df8e21354d202cd5a1383cd" data-disable-custom-css="false" data-highlight-js-path="/highlight-js/community.openweaver.com/a5a82d5d9c93ba17b974dbe7408b61e64d7130b7.js" data-svg-sprite-path="/svg-sprite/community.openweaver.com/svg-1-5dfccf94c814347b1c8fbac07d83263b4a54be65.js" data-enable-js-error-reporting="true" data-color-scheme-is-dark="false" data-user-color-scheme-id="4" data-user-dark-scheme-id="1" data-s3-cdn="https://global.discourse-cdn.com/business7" data-s3-base-url="//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7">
+
+    <meta name="discourse/config/environment" content="%7B%22modulePrefix%22%3A%22discourse%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22%22%2C%22locationType%22%3A%22history%22%2C%22historySupportMiddleware%22%3Afalse%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%2C%22_APPLICATION_TEMPLATE_WRAPPER%22%3Afalse%2C%22_DEFAULT_ASYNC_OBSERVERS%22%3Atrue%2C%22_JQUERY_INTEGRATION%22%3Atrue%7D%2C%22APP%22%3A%7B%22name%22%3A%22discourse%22%2C%22version%22%3A%223.1.0.beta2%20cb4a22b34ffdbfd6846af1257bb5a2fdf8dc49f3%22%2C%22exportApplicationGlobal%22%3Atrue%7D%7D" />
+  </head>
+
+  <body class="">
+      <section id="d-splash">
+  <template class="splash-svg-template">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1"
+    >
+      <style>
+        :root {
+          --animation-state: paused;
+        }
+
+        /* user picked a theme where the "regular" scheme is dark */
+        /* user picked a theme a light scheme and also enabled a dark scheme */
+
+        /* deal with light scheme first */
+        @media (prefers-color-scheme: light) {
+          :root {
+            --primary: #1e2022;
+            --secondary: #FFFFFF;
+            --tertiary: #6A2BF3;
+            --quaternary: #9B5EFF;
+            --highlight: #FFCB3E;
+            --success: #009900;
+          }
+        }
+
+        /* then deal with dark scheme */
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --primary: #F3F5F7;
+            --secondary: #2d3033;
+            --tertiary: #fff;
+            --quaternary: #9B5EFF;
+            --highlight: #C1549C;
+            --success: #009900;
+          }
+        }
+
+        /* these styles need to live here because the SVG has a different scope */
+        .dots {
+          animation-name: loader;
+          animation-timing-function: ease-in-out;
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+          animation-play-state: var(--animation-state);
+          stroke: #fff;
+          stroke-width: 0.5px;
+          transform-origin: center;
+          opacity: 0;
+          r: max(1vw, 11px);
+          cy: 50%;
+          filter: saturate(2) opacity(0.85);
+        }
+
+        .dots:first-child {
+          fill: var(--quaternary);
+        }
+
+        .dots:nth-child(2) {
+          fill: var(--quaternary);
+          animation-delay: 0.15s;
+        }
+
+        .dots:nth-child(3) {
+          fill: var(--highlight);
+          animation-delay: 0.3s;
+        }
+
+        .dots:nth-child(4) {
+          fill: var(--tertiary);
+          animation-delay: 0.45s;
+        }
+
+        .dots:nth-child(5) {
+          fill: var(--tertiary);
+          animation-delay: 0.6s;
+        }
+
+        @keyframes loader {
+          0% {
+            opacity: 0;
+            transform: scale(1);
+          }
+          45% {
+            opacity: 1;
+            transform: scale(0.7);
+          }
+          65% {
+            opacity: 1;
+            transform: scale(0.7);
+          }
+          100% {
+            opacity: 0;
+            transform: scale(1);
+          }
+        }
+      </style>
+
+      <g class="container">
+        <circle class="dots" cx="30vw" />
+        <circle class="dots" cx="40vw" />
+        <circle class="dots" cx="50vw" />
+        <circle class="dots" cx="60vw" />
+        <circle class="dots" cx="70vw" />
+      </g>
+    </svg>
+  </template>
+
+  <style>
+    html {
+      overflow-y: hidden !important;
+    }
+
+    /* user picked a theme where the "regular" scheme is dark */
+    /* user picked a theme a light scheme and also enabled a dark scheme */
+
+    /* deal with light scheme first */
+    @media (prefers-color-scheme: light) {
+      html {
+        background-color: #FFFFFF;
+      }
+
+      #d-splash .preloader-text-wrapper {
+        color: #1e2022;
+      }
+    }
+
+    /* then deal with dark scheme */
+    @media (prefers-color-scheme: dark) {
+      html {
+        background-color: #2d3033;
+      }
+
+      #d-splash .preloader-text-wrapper {
+        color: #F3F5F7;
+      }
+    }
+
+    #d-splash {
+      display: grid;
+      place-items: center;
+      backface-visibility: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1001;
+      --animation-state: paused;
+    }
+
+    #d-splash .preloader-image {
+      max-width: 100%;
+      height: 100vh;
+    }
+
+    #d-splash .preloader-text-wrapper {
+      position: absolute;
+      opacity: 0;
+      animation: fade-in 0.5s ease-in-out;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      animation-play-state: var(--animation-state);
+      margin-bottom: -4em;
+    }
+
+    #d-splash .preloader-text:after {
+      animation: loading-text 3s infinite;
+      content: "";
+      position: absolute;
+      margin: 0 0.1em;
+      left: 100%;
+    }
+
+    .rtl #d-splash .preloader-text:after {
+      left: 0;
+      right: 100%;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes loading-text {
+      0% {
+        content: "";
+      }
+      25% {
+        content: ".";
+      }
+      50% {
+        content: "..";
+      }
+      75% {
+        content: "...";
+      }
+    }
+  </style>
+
+  <img
+    class="preloader-image"
+    src="data:image/svg;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    alt="Open Weaver"
+  />
+
+  <div class="preloader-text-wrapper">
+    <div class="preloader-text">Loading</div>
+  </div>
+
+  <noscript>
+    <style>
+      html {
+        overflow-y: revert !important;
+      }
+
+      #d-splash {
+        display: none;
+      }
+    </style>
+  </noscript>
+
+  <script>// This script is inlined in `_discourse_splash.html.erb
+const DELAY_TARGET = 2000;
+const POLLING_INTERVAL = 50;
+const splashSvgTemplate = document.querySelector(".splash-svg-template");
+const splashTemplateClone = splashSvgTemplate.content.cloneNode(true);
+const svgElement = splashTemplateClone.querySelector("svg");
+const svgString = new XMLSerializer().serializeToString(svgElement);
+const encodedSvg = btoa(svgString);
+const splashWrapper = document.querySelector("#d-splash");
+const splashImage = splashWrapper && splashWrapper.querySelector(".preloader-image");
+if (splashImage) {
+  splashImage.src = `data:image/svg+xml;base64,${encodedSvg}`;
+  const connectStart = performance.timing.connectStart || 0;
+  const targetTime = connectStart + DELAY_TARGET;
+  let splashInterval;
+  let discourseReady;
+  const swapSplash = () => {
+    splashWrapper && splashWrapper.style.setProperty("--animation-state", "running");
+    svgElement && svgElement.style.setProperty("--animation-state", "running");
+    const newSvgString = new XMLSerializer().serializeToString(svgElement);
+    const newEncodedSvg = btoa(newSvgString);
+    splashImage.src = `data:image/svg+xml;base64,${newEncodedSvg}`;
+    performance.mark("discourse-splash-visible");
+    clearSplashInterval();
+  };
+  const clearSplashInterval = () => {
+    clearInterval(splashInterval);
+    splashInterval = null;
+  };
+  (() => {
+    splashInterval = setInterval(() => {
+      if (discourseReady) {
+        clearSplashInterval();
+      }
+      if (Date.now() > targetTime) {
+        swapSplash();
+      }
+    }, POLLING_INTERVAL);
+  })();
+  document.addEventListener("discourse-ready", () => {
+    discourseReady = true;
+    splashWrapper && splashWrapper.remove();
+    performance.mark("discourse-splash-removed");
+  }, {
+    once: true
+  });
+}
+</script>
+
+</section>
+
+
+    <discourse-assets>
+      <discourse-assets-stylesheets>
+        <link href="https://sea2.discourse-cdn.com/business7/stylesheets/color_definitions_light_4_1_1d6b9ccaf1949076f2b97871c4caebd0fa99939e.css?__ws=community.openweaver.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://sea2.discourse-cdn.com/business7/stylesheets/color_definitions_dark_1_1_742a993175c2b50aec5a4361791526ddb5a8a09a.css?__ws=community.openweaver.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/chat_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="chat"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-adplugin_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-adplugin"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-akismet_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-akismet"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-cakeday_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-cakeday"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-checklist_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-checklist"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-details_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-footnote_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-footnote"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-local-dates_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-narrative-bot_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-policy_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-presence_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-reactions_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-solved_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-spoiler-alert_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-spoiler-alert"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-templates_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-topic-voting_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/hosted-site_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/lazy-yt_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/poll_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/chat_desktop_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="chat_desktop"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-reactions_desktop_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/discourse-topic-voting_desktop_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="discourse-topic-voting_desktop"  />
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/poll_desktop_48aeb7604a98cfd1bcebf038c0e5bbb4549828eb.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_18_4ca20f86acc6965ac2a559c89aabad61a33b0707.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="18" data-theme-name="air theme"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_3_140dada62d1fd23a6716b53595edd2a7797bb3a7.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="3" data-theme-name="custom header links"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_10_265d822f6d408213f74ab2153c56c6d46c113082.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="10" data-theme-name="discourse clickable topic"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_16_1f1e196a210a0fa4c861e4540fe8f7f6056e9bc3.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="16" data-theme-name="discourse loading slider"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_4_53d2738d2c4a9c4279a8a0da49bae3d90dd0eee4.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="4" data-theme-name="discourse-category-banners"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_5_e182777a39a83acaf04da9fdc0aa5b735c323b4c.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="5" data-theme-name="discourse-homepage-feature-component"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_17_94990d2c41e86984bb89b48ad171c6e2e9d0b165.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="17" data-theme-name="discourse-search-banner"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_7_09659c46c78edf7caf2e6defe1bd74fab1293269.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="7" data-theme-name="modern category + group boxes"/>
+<link href="https://sea2.discourse-cdn.com/business7/stylesheets/desktop_theme_1_b3e3e4f5d47c6f55cc04c8036ffe58946d7cbd06.css?__ws=community.openweaver.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="1" data-theme-name="default"/>
+
+      </discourse-assets-stylesheets>
+      <discourse-assets-json>
+        <div class="hidden" id="data-preloaded" data-preloaded="{&quot;site&quot;:&quot;{\&quot;default_archetype\&quot;:\&quot;regular\&quot;,\&quot;notification_types\&quot;:{\&quot;mentioned\&quot;:1,\&quot;replied\&quot;:2,\&quot;quoted\&quot;:3,\&quot;edited\&quot;:4,\&quot;liked\&quot;:5,\&quot;private_message\&quot;:6,\&quot;invited_to_private_message\&quot;:7,\&quot;invitee_accepted\&quot;:8,\&quot;posted\&quot;:9,\&quot;moved_post\&quot;:10,\&quot;linked\&quot;:11,\&quot;granted_badge\&quot;:12,\&quot;invited_to_topic\&quot;:13,\&quot;custom\&quot;:14,\&quot;group_mentioned\&quot;:15,\&quot;group_message_summary\&quot;:16,\&quot;watching_first_post\&quot;:17,\&quot;topic_reminder\&quot;:18,\&quot;liked_consolidated\&quot;:19,\&quot;post_approved\&quot;:20,\&quot;code_review_commit_approved\&quot;:21,\&quot;membership_request_accepted\&quot;:22,\&quot;membership_request_consolidated\&quot;:23,\&quot;bookmark_reminder\&quot;:24,\&quot;reaction\&quot;:25,\&quot;votes_released\&quot;:26,\&quot;event_reminder\&quot;:27,\&quot;event_invitation\&quot;:28,\&quot;chat_mention\&quot;:29,\&quot;chat_message\&quot;:30,\&quot;chat_invitation\&quot;:31,\&quot;chat_group_mention\&quot;:32,\&quot;chat_quoted\&quot;:33,\&quot;assigned\&quot;:34,\&quot;question_answer_user_commented\&quot;:35,\&quot;watching_category_or_tag\&quot;:36,\&quot;new_features\&quot;:37,\&quot;following\&quot;:800,\&quot;following_created_topic\&quot;:801,\&quot;following_replied\&quot;:802,\&quot;circles_activity\&quot;:900},\&quot;post_types\&quot;:{\&quot;regular\&quot;:1,\&quot;moderator_action\&quot;:2,\&quot;small_action\&quot;:3,\&quot;whisper\&quot;:4},\&quot;trust_levels\&quot;:{\&quot;newuser\&quot;:0,\&quot;basic\&quot;:1,\&quot;member\&quot;:2,\&quot;regular\&quot;:3,\&quot;leader\&quot;:4},\&quot;groups\&quot;:[{\&quot;id\&quot;:41,\&quot;name\&quot;:\&quot;Mentors\&quot;,\&quot;flair_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/93db4949e1f325234dd17680023de7830f24053a.png\&quot;,\&quot;flair_bg_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;flair_color\&quot;:\&quot;\&quot;},{\&quot;id\&quot;:42,\&quot;name\&quot;:\&quot;VIT_VOLUNTEERS\&quot;,\&quot;flair_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/7e29044b325724e8cd8923b16fb5ca311a797e50.png\&quot;,\&quot;flair_bg_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;flair_color\&quot;:\&quot;\&quot;}],\&quot;filters\&quot;:[\&quot;latest\&quot;,\&quot;unread\&quot;,\&quot;new\&quot;,\&quot;unseen\&quot;,\&quot;top\&quot;,\&quot;read\&quot;,\&quot;posted\&quot;,\&quot;bookmarks\&quot;,\&quot;votes\&quot;],\&quot;periods\&quot;:[\&quot;all\&quot;,\&quot;yearly\&quot;,\&quot;quarterly\&quot;,\&quot;monthly\&quot;,\&quot;weekly\&quot;,\&quot;daily\&quot;],\&quot;top_menu_items\&quot;:[\&quot;latest\&quot;,\&quot;unread\&quot;,\&quot;new\&quot;,\&quot;unseen\&quot;,\&quot;top\&quot;,\&quot;read\&quot;,\&quot;posted\&quot;,\&quot;bookmarks\&quot;,\&quot;categories\&quot;,\&quot;votes\&quot;],\&quot;anonymous_top_menu_items\&quot;:[\&quot;latest\&quot;,\&quot;top\&quot;,\&quot;categories\&quot;,\&quot;categories\&quot;,\&quot;top\&quot;,\&quot;votes\&quot;],\&quot;uncategorized_category_id\&quot;:1,\&quot;user_field_max_length\&quot;:2048,\&quot;post_action_types\&quot;:[{\&quot;id\&quot;:2,\&quot;name_key\&quot;:\&quot;like\&quot;,\&quot;name\&quot;:\&quot;Like\&quot;,\&quot;description\&quot;:\&quot;Like this post\&quot;,\&quot;short_description\&quot;:\&quot;Like this post\&quot;,\&quot;is_flag\&quot;:false,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:3,\&quot;name_key\&quot;:\&quot;off_topic\&quot;,\&quot;name\&quot;:\&quot;Off-Topic\&quot;,\&quot;description\&quot;:\&quot;This post is not relevant to the current discussion as defined by the title and first post, and should probably be moved elsewhere.\&quot;,\&quot;short_description\&quot;:\&quot;Not relevant to the discussion\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:4,\&quot;name_key\&quot;:\&quot;inappropriate\&quot;,\&quot;name\&quot;:\&quot;Inappropriate\&quot;,\&quot;description\&quot;:\&quot;This post contains content that a reasonable person would consider offensive, abusive, to be hateful conduct or a violation of \\u003ca href=\\\&quot;/guidelines\\\&quot;\\u003eour community guidelines\\u003c/a\\u003e.\&quot;,\&quot;short_description\&quot;:\&quot;A violation of \\u003ca href=\\\&quot;/guidelines\\\&quot;\\u003eour community guidelines\\u003c/a\\u003e\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:8,\&quot;name_key\&quot;:\&quot;spam\&quot;,\&quot;name\&quot;:\&quot;Spam\&quot;,\&quot;description\&quot;:\&quot;This post is an advertisement, or vandalism. It is not useful or relevant to the current topic.\&quot;,\&quot;short_description\&quot;:\&quot;This is an advertisement or vandalism\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:6,\&quot;name_key\&quot;:\&quot;notify_user\&quot;,\&quot;name\&quot;:\&quot;Send @%{username} a message\&quot;,\&quot;description\&quot;:\&quot;I want to talk to this person directly and personally about their post.\&quot;,\&quot;short_description\&quot;:\&quot;I want to talk to this person directly and personally about their post.\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:true},{\&quot;id\&quot;:null,\&quot;name_key\&quot;:null,\&quot;name\&quot;:\&quot;translation missing: en.post_action_types..title\&quot;,\&quot;description\&quot;:\&quot;translation missing: en.post_action_types.description\&quot;,\&quot;short_description\&quot;:\&quot;translation missing: en.post_action_types.short_description\&quot;,\&quot;is_flag\&quot;:false,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:7,\&quot;name_key\&quot;:\&quot;notify_moderators\&quot;,\&quot;name\&quot;:\&quot;Something Else\&quot;,\&quot;description\&quot;:\&quot;This post requires staff attention for another reason not listed above.\&quot;,\&quot;short_description\&quot;:\&quot;Requires staff attention for another reason\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:true}],\&quot;topic_flag_types\&quot;:[{\&quot;id\&quot;:4,\&quot;name_key\&quot;:\&quot;inappropriate\&quot;,\&quot;name\&quot;:\&quot;Inappropriate\&quot;,\&quot;description\&quot;:\&quot;This topic contains content that a reasonable person would consider offensive, abusive, to be hateful conduct or a violation of \\u003ca href=\\\&quot;/guidelines\\\&quot;\\u003eour community guidelines\\u003c/a\\u003e.\&quot;,\&quot;short_description\&quot;:\&quot;A violation of \\u003ca href=\\\&quot;/guidelines\\\&quot;\\u003eour community guidelines\\u003c/a\\u003e\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:8,\&quot;name_key\&quot;:\&quot;spam\&quot;,\&quot;name\&quot;:\&quot;Spam\&quot;,\&quot;description\&quot;:\&quot;This topic is an advertisement. It is not useful or relevant to this site, but promotional in nature.\&quot;,\&quot;short_description\&quot;:\&quot;This is an advertisement\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:null,\&quot;name_key\&quot;:null,\&quot;name\&quot;:\&quot;translation missing: en.topic_flag_types..title\&quot;,\&quot;description\&quot;:\&quot;translation missing: en.topic_flag_types.description\&quot;,\&quot;short_description\&quot;:\&quot;translation missing: en.topic_flag_types.short_description\&quot;,\&quot;is_flag\&quot;:false,\&quot;is_custom_flag\&quot;:false},{\&quot;id\&quot;:7,\&quot;name_key\&quot;:\&quot;notify_moderators\&quot;,\&quot;name\&quot;:\&quot;Something Else\&quot;,\&quot;description\&quot;:\&quot;This topic requires general staff attention based on the \\u003ca href=\\\&quot;/guidelines\\\&quot;\\u003eguidelines\\u003c/a\\u003e, \\u003ca href=\\\&quot;/tos\\\&quot;\\u003eTOS\\u003c/a\\u003e, or for another reason not listed above.\&quot;,\&quot;short_description\&quot;:\&quot;Requires staff attention for another reason\&quot;,\&quot;is_flag\&quot;:true,\&quot;is_custom_flag\&quot;:true}],\&quot;can_create_tag\&quot;:false,\&quot;can_tag_topics\&quot;:false,\&quot;can_tag_pms\&quot;:false,\&quot;tags_filter_regexp\&quot;:\&quot;[/\\\\?#\\\\[\\\\]@!\\\\$\\u0026&#39;\\\\(\\\\)\\\\*\\\\+,;=\\\\.%\\\\\\\\`^\\\\s|\\\\{\\\\}\\\&quot;\\u003c\\u003e]+\&quot;,\&quot;top_tags\&quot;:[\&quot;open-source-project\&quot;,\&quot;featured\&quot;],\&quot;topic_featured_link_allowed_category_ids\&quot;:[5,24,1,9,4,7,12,8,6,14,3,11,22,15,18,16,17,20,21,19],\&quot;user_themes\&quot;:[{\&quot;theme_id\&quot;:1,\&quot;name\&quot;:\&quot;Default\&quot;,\&quot;default\&quot;:true,\&quot;color_scheme_id\&quot;:4}],\&quot;user_color_schemes\&quot;:[{\&quot;id\&quot;:3,\&quot;name\&quot;:\&quot;WCAG Dark\&quot;,\&quot;is_dark\&quot;:true},{\&quot;id\&quot;:2,\&quot;name\&quot;:\&quot;WCAG Light\&quot;,\&quot;is_dark\&quot;:false}],\&quot;default_dark_color_scheme\&quot;:{\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;Dark\&quot;,\&quot;version\&quot;:28,\&quot;created_at\&quot;:\&quot;2022-07-07T12:38:36.477Z\&quot;,\&quot;updated_at\&quot;:\&quot;2023-02-06T09:56:58.379Z\&quot;,\&quot;via_wizard\&quot;:true,\&quot;base_scheme_id\&quot;:\&quot;Dark\&quot;,\&quot;theme_id\&quot;:null,\&quot;user_selectable\&quot;:false},\&quot;censored_regexp\&quot;:[],\&quot;custom_emoji_translation\&quot;:{},\&quot;watched_words_replace\&quot;:null,\&quot;watched_words_link\&quot;:null,\&quot;categories\&quot;:[{\&quot;id\&quot;:21,\&quot;name\&quot;:\&quot;Live Sessions \\u0026 Events\&quot;,\&quot;color\&quot;:\&quot;FF476F\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;live-sessions-events-news\&quot;,\&quot;topic_count\&quot;:6,\&quot;post_count\&quot;:19,\&quot;position\&quot;:0,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-live-sessions-events-category/2054\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:5,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1670,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/a/a825135ac6d16a309433620cb1440b88fdec57d3.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:22,\&quot;name\&quot;:\&quot;Learning Hub - Self Paced Certifications\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-self-paced-certifications\&quot;,\&quot;topic_count\&quot;:0,\&quot;post_count\&quot;:0,\&quot;position\&quot;:1,\&quot;description\&quot;:\&quot;Are you looking forward to start of 2023 with renewed enthusiasm? We have got you covered with some interesting \\u003cstrong\\u003e60 min Applied Learning Self Certifications\\u003c/strong\\u003e! Check out our industry relevant courses across \\u003cstrong\\u003eAI \\u0026amp; ML, Big Data Analytics, AR \\u0026amp; VR, Blockchain, Gaming\\u003c/strong\\u003e etc.\&quot;,\&quot;description_text\&quot;:\&quot;Are you looking forward to start of 2023 with renewed enthusiasm? We have got you covered with some interesting 60 min Applied Learning Self Certifications! Check out our industry relevant courses across AI \\u0026amp; ML, Big Data Analytics, AR \\u0026amp; VR, Blockchain, Gaming etc.\&quot;,\&quot;description_excerpt\&quot;:\&quot;Are you looking forward to start of 2023 with renewed enthusiasm? We have got you covered with some interesting 60 min Applied Learning Self Certifications! Check out our industry relevant courses across AI \\u0026amp; ML, Big Data Analytics, AR \\u0026amp; VR, Blockchain, Gaming etc.\&quot;,\&quot;topic_url\&quot;:\&quot;/t/learning-hub-self-paced-certifications/12745\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:7,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1671,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/e/e12818ab9963bb29bc4cf0c4258e706caa12a3d4.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:24,\&quot;name\&quot;:\&quot;Newsroom\&quot;,\&quot;color\&quot;:\&quot;0088CC\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;newsroom\&quot;,\&quot;topic_count\&quot;:7,\&quot;post_count\&quot;:7,\&quot;position\&quot;:2,\&quot;description\&quot;:\&quot;Stay tuned for the latest news and updates about Open Weaver, partnerships, accolades, hackathons, and developer-focused industry events to accelerate application development.\&quot;,\&quot;description_text\&quot;:\&quot;Stay tuned for the latest news and updates about Open Weaver, partnerships, accolades, hackathons, and developer-focused industry events to accelerate application development.\&quot;,\&quot;description_excerpt\&quot;:\&quot;Stay tuned for the latest news and updates about Open Weaver, partnerships, accolades, hackathons, and developer-focused industry events to accelerate application development.\&quot;,\&quot;topic_url\&quot;:\&quot;/t/about-the-newsroom-category/20276\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1920,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/d/d8a81e6554d36f3a2edd7daa39b39d79634c239c.png\&quot;,\&quot;width\&quot;:401,\&quot;height\&quot;:400},\&quot;uploaded_logo_dark\&quot;:{\&quot;id\&quot;:1920,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/d/d8a81e6554d36f3a2edd7daa39b39d79634c239c.png\&quot;,\&quot;width\&quot;:401,\&quot;height\&quot;:400},\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:6,\&quot;name\&quot;:\&quot;Support\&quot;,\&quot;color\&quot;:\&quot;260669\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;support\&quot;,\&quot;topic_count\&quot;:1,\&quot;post_count\&quot;:1,\&quot;position\&quot;:3,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-support-category/13\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:6,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:361,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/bc4da89dae120dadd32db379984d5fd5e6343454.png\&quot;,\&quot;width\&quot;:200,\&quot;height\&quot;:200},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:8,\&quot;name\&quot;:\&quot;FutureSkills Prime Collaboration\&quot;,\&quot;color\&quot;:\&quot;F3F5F7\&quot;,\&quot;text_color\&quot;:\&quot;000000\&quot;,\&quot;slug\&quot;:\&quot;futureskills-prime-collaboration\&quot;,\&quot;topic_count\&quot;:25,\&quot;post_count\&quot;:33,\&quot;position\&quot;:4,\&quot;description\&quot;:\&quot;NASSCOM FutureSkills Prime and Open Weaver are proud to support your continuous learning journey. Congratulations to you and all the best!\&quot;,\&quot;description_text\&quot;:\&quot;NASSCOM FutureSkills Prime and Open Weaver are proud to support your continuous learning journey. Congratulations to you and all the best!\&quot;,\&quot;description_excerpt\&quot;:\&quot;NASSCOM FutureSkills Prime and Open Weaver are proud to support your continuous learning journey. Congratulations to you and all the best!\&quot;,\&quot;topic_url\&quot;:\&quot;/t/about-the-futureskills-prime-collaboration-category/130\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:5,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1672,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/a/af92cf7f13c5b984ba9e72b23e756f592140ecad.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:9,\&quot;name\&quot;:\&quot;ICT Academy Collaboration\&quot;,\&quot;color\&quot;:\&quot;F58634\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;ict-bridge-2022\&quot;,\&quot;topic_count\&quot;:1,\&quot;post_count\&quot;:7,\&quot;position\&quot;:5,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-ict-academy-collaboration-category/144\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1673,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/8/87b5f191613d69ec4e780dc78f0fabc1131416af.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:14,\&quot;name\&quot;:\&quot;Learning Hub - AI \\u0026 ML\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-ai-ml\&quot;,\&quot;topic_count\&quot;:12,\&quot;post_count\&quot;:16,\&quot;position\&quot;:6,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-learning-hub-ai-ml-category/1494\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:\&quot;\&quot;,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1674,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/8/8e0edb4d83d57ef3c847514b1be69f599f5991b8.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:19,\&quot;name\&quot;:\&quot;Learning Hub - Programming Basics\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-programming-basics\&quot;,\&quot;topic_count\&quot;:3,\&quot;post_count\&quot;:3,\&quot;position\&quot;:7,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-learning-hub-programming-basics-category/1508\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1675,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/e/e016e0b89b0e5ee002c79d75723204d9ba5d78eb.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:15,\&quot;name\&quot;:\&quot;Learning Hub - AR \\u0026 VR\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-ar-vr\&quot;,\&quot;topic_count\&quot;:7,\&quot;post_count\&quot;:13,\&quot;position\&quot;:8,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-learning-hub-ar-vr-category/1504\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1676,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/b/b202f9ac2b448e143d989d05edaab44f10a60fc1.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:18,\&quot;name\&quot;:\&quot;Learning Hub - Gaming\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-gaming\&quot;,\&quot;topic_count\&quot;:12,\&quot;post_count\&quot;:24,\&quot;position\&quot;:9,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-learning-hub-gaming-category/1507\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1677,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/4/4622223289649976d1bdd5f40d5a6602cdb5fbb4.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:17,\&quot;name\&quot;:\&quot;Learning Hub - Blockchain\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-blockchain\&quot;,\&quot;topic_count\&quot;:3,\&quot;post_count\&quot;:7,\&quot;position\&quot;:10,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-learning-hub-blockchain-category/1506\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1678,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/6/65792fc9975b8995a1463e6de481d5adb1e87a0d.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:16,\&quot;name\&quot;:\&quot;Learning Hub - Big Data Analysis\&quot;,\&quot;color\&quot;:\&quot;9B5EFF\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;learning-hub-big-data-analysis\&quot;,\&quot;topic_count\&quot;:1,\&quot;post_count\&quot;:1,\&quot;position\&quot;:11,\&quot;description\&quot;:null,\&quot;description_text\&quot;:null,\&quot;description_excerpt\&quot;:null,\&quot;topic_url\&quot;:\&quot;/t/about-the-learning-hub-big-data-analysis-category/1505\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1679,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/f/fc8a0a65db96befb6648c3c17ca919d792cac38a.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false},{\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;Uncategorized\&quot;,\&quot;color\&quot;:\&quot;FB836F\&quot;,\&quot;text_color\&quot;:\&quot;FFFFFF\&quot;,\&quot;slug\&quot;:\&quot;uncategorized\&quot;,\&quot;topic_count\&quot;:4,\&quot;post_count\&quot;:23,\&quot;position\&quot;:12,\&quot;description\&quot;:\&quot;Topics that don&#39;t need a category, or don&#39;t fit into any other existing category.\&quot;,\&quot;description_text\&quot;:\&quot;Topics that don&#39;t need a category, or don&#39;t fit into any other existing category.\&quot;,\&quot;description_excerpt\&quot;:\&quot;Topics that don&#39;t need a category, or don&#39;t fit into any other existing category.\&quot;,\&quot;topic_url\&quot;:\&quot;/t/\&quot;,\&quot;read_restricted\&quot;:false,\&quot;permission\&quot;:null,\&quot;notification_level\&quot;:1,\&quot;topic_template\&quot;:null,\&quot;has_children\&quot;:false,\&quot;sort_order\&quot;:null,\&quot;sort_ascending\&quot;:null,\&quot;show_subcategory_list\&quot;:false,\&quot;num_featured_topics\&quot;:3,\&quot;default_view\&quot;:null,\&quot;subcategory_list_style\&quot;:\&quot;rows_with_featured_topics\&quot;,\&quot;default_top_period\&quot;:\&quot;all\&quot;,\&quot;default_list_filter\&quot;:\&quot;all\&quot;,\&quot;minimum_required_tags\&quot;:0,\&quot;navigate_to_first_post_after_read\&quot;:false,\&quot;custom_fields\&quot;:{\&quot;has_chat_enabled\&quot;:null,\&quot;enable_unassigned_filter\&quot;:null,\&quot;sort_topics_by_event_start_date\&quot;:null,\&quot;disable_topic_resorting\&quot;:null,\&quot;enable_accepted_answers\&quot;:null},\&quot;allowed_tags\&quot;:[],\&quot;allowed_tag_groups\&quot;:[],\&quot;allow_global_tags\&quot;:false,\&quot;read_only_banner\&quot;:null,\&quot;form_template_ids\&quot;:[],\&quot;uploaded_logo\&quot;:{\&quot;id\&quot;:1680,\&quot;url\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/7/7ef5c3ba6699e426ee61db67f4dcc1232a594146.png\&quot;,\&quot;width\&quot;:201,\&quot;height\&quot;:201},\&quot;uploaded_logo_dark\&quot;:null,\&quot;uploaded_background\&quot;:null,\&quot;required_tag_groups\&quot;:[],\&quot;can_edit\&quot;:false}],\&quot;markdown_additional_options\&quot;:{\&quot;chat\&quot;:{\&quot;limited_pretty_text_features\&quot;:[\&quot;anchor\&quot;,\&quot;bbcode-block\&quot;,\&quot;bbcode-inline\&quot;,\&quot;code\&quot;,\&quot;category-hashtag\&quot;,\&quot;censored\&quot;,\&quot;chat-transcript\&quot;,\&quot;discourse-local-dates\&quot;,\&quot;emoji\&quot;,\&quot;emojiShortcuts\&quot;,\&quot;inlineEmoji\&quot;,\&quot;html-img\&quot;,\&quot;hashtag-autocomplete\&quot;,\&quot;mentions\&quot;,\&quot;unicodeUsernames\&quot;,\&quot;onebox\&quot;,\&quot;quotes\&quot;,\&quot;spoiler-alert\&quot;,\&quot;table\&quot;,\&quot;text-post-process\&quot;,\&quot;upload-protocol\&quot;,\&quot;watched-words\&quot;],\&quot;limited_pretty_text_markdown_rules\&quot;:[\&quot;autolink\&quot;,\&quot;list\&quot;,\&quot;backticks\&quot;,\&quot;newline\&quot;,\&quot;code\&quot;,\&quot;fence\&quot;,\&quot;image\&quot;,\&quot;table\&quot;,\&quot;linkify\&quot;,\&quot;link\&quot;,\&quot;strikethrough\&quot;,\&quot;blockquote\&quot;,\&quot;emphasis\&quot;],\&quot;hashtag_configurations\&quot;:{\&quot;topic-composer\&quot;:[\&quot;category\&quot;,\&quot;tag\&quot;]}}},\&quot;hashtag_configurations\&quot;:{\&quot;topic-composer\&quot;:[\&quot;category\&quot;,\&quot;tag\&quot;,\&quot;channel\&quot;],\&quot;chat-composer\&quot;:[\&quot;channel\&quot;,\&quot;category\&quot;,\&quot;tag\&quot;]},\&quot;hashtag_icons\&quot;:[\&quot;folder\&quot;,\&quot;tag\&quot;,\&quot;comment\&quot;],\&quot;displayed_about_plugin_stat_groups\&quot;:[\&quot;chat_messages\&quot;],\&quot;show_welcome_topic_banner\&quot;:false,\&quot;house_creatives\&quot;:{\&quot;settings\&quot;:{\&quot;topic_list_top\&quot;:\&quot;\&quot;,\&quot;topic_above_post_stream\&quot;:\&quot;\&quot;,\&quot;topic_above_suggested\&quot;:\&quot;\&quot;,\&quot;post_bottom\&quot;:\&quot;\&quot;,\&quot;topic_list_between\&quot;:\&quot;\&quot;,\&quot;after_nth_post\&quot;:20,\&quot;after_nth_topic\&quot;:20,\&quot;house_ads_frequency\&quot;:100},\&quot;creatives\&quot;:{}},\&quot;hosting_tier\&quot;:\&quot;business\&quot;,\&quot;archetypes\&quot;:[{\&quot;id\&quot;:\&quot;regular\&quot;,\&quot;name\&quot;:\&quot;Regular Topic\&quot;,\&quot;options\&quot;:[]},{\&quot;id\&quot;:\&quot;banner\&quot;,\&quot;name\&quot;:\&quot;Banner Topic\&quot;,\&quot;options\&quot;:[]}],\&quot;user_fields\&quot;:[],\&quot;auth_providers\&quot;:[]}&quot;,&quot;siteSettings&quot;:&quot;{\&quot;default_locale\&quot;:\&quot;en\&quot;,\&quot;title\&quot;:\&quot;Open Weaver\&quot;,\&quot;short_site_description\&quot;:\&quot;Build your ideas with Open Source - learn, experiment and showcase\&quot;,\&quot;exclude_rel_nofollow_domains\&quot;:\&quot;\&quot;,\&quot;logo\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/5d6f754f78bc6bd744a6b83bdea25906a4bc4b64.png\&quot;,\&quot;logo_small\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/cdd2e4fbb8c8985e4589b133bc1d49d44e366130.png\&quot;,\&quot;digest_logo\&quot;:\&quot;\&quot;,\&quot;mobile_logo\&quot;:\&quot;\&quot;,\&quot;logo_dark\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/d275e6751cfd5f9d2aa11f6364366a6e6bdd1f96.png\&quot;,\&quot;logo_small_dark\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/9e755e1c9c232b6d301ff556cbdac4abd3632799.png\&quot;,\&quot;mobile_logo_dark\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/d275e6751cfd5f9d2aa11f6364366a6e6bdd1f96.png\&quot;,\&quot;large_icon\&quot;:\&quot;\&quot;,\&quot;favicon\&quot;:\&quot;//cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/1X/cdd2e4fbb8c8985e4589b133bc1d49d44e366130.png\&quot;,\&quot;apple_touch_icon\&quot;:\&quot;\&quot;,\&quot;display_local_time_in_user_card\&quot;:false,\&quot;allow_user_locale\&quot;:false,\&quot;set_locale_from_accept_language_header\&quot;:false,\&quot;set_locale_from_cookie\&quot;:false,\&quot;support_mixed_text_direction\&quot;:false,\&quot;suggested_topics\&quot;:0,\&quot;ga_universal_tracking_code\&quot;:\&quot;\&quot;,\&quot;ga_universal_domain_name\&quot;:\&quot;auto\&quot;,\&quot;gtm_container_id\&quot;:\&quot;GTM-5H5VR96\&quot;,\&quot;top_menu\&quot;:\&quot;categories|latest|new|unread|top\&quot;,\&quot;post_menu\&quot;:\&quot;read|like|share|flag|edit|bookmark|delete|admin|reply\&quot;,\&quot;post_menu_hidden_items\&quot;:\&quot;flag|bookmark|edit|delete|admin\&quot;,\&quot;share_links\&quot;:\&quot;twitter|facebook|email\&quot;,\&quot;allow_username_in_share_links\&quot;:true,\&quot;share_quote_visibility\&quot;:\&quot;anonymous\&quot;,\&quot;share_quote_buttons\&quot;:\&quot;twitter|email\&quot;,\&quot;desktop_category_page_style\&quot;:\&quot;categories_boxes\&quot;,\&quot;category_colors\&quot;:\&quot;BF1E2E|F1592A|F7941D|9EB83B|3AB54A|12A89D|25AAE2|0E76BD|652D90|92278F|ED207B|8C6238|231F20|808281|B3B5B4|E45735\&quot;,\&quot;category_style\&quot;:\&quot;box\&quot;,\&quot;max_category_nesting\&quot;:2,\&quot;enable_mobile_theme\&quot;:true,\&quot;enable_direct_s3_uploads\&quot;:true,\&quot;enable_upload_debug_mode\&quot;:false,\&quot;default_dark_mode_color_scheme_id\&quot;:1,\&quot;relative_date_duration\&quot;:30,\&quot;fixed_category_positions\&quot;:true,\&quot;fixed_category_positions_on_create\&quot;:true,\&quot;enable_badges\&quot;:true,\&quot;enable_badge_sql\&quot;:false,\&quot;max_favorite_badges\&quot;:2,\&quot;whispers_allowed_groups\&quot;:\&quot;\&quot;,\&quot;enable_bookmarks_with_reminders\&quot;:true,\&quot;push_notifications_prompt\&quot;:true,\&quot;enable_desktop_push_notifications\&quot;:true,\&quot;vapid_public_key_bytes\&quot;:\&quot;4|116|11|121|16|233|38|58|227|237|144|202|226|85|235|48|81|194|11|53|71|111|221|43|166|254|152|25|3|226|231|125|237|58|210|232|184|139|104|248|15|104|43|122|228|146|192|218|45|232|9|125|212|150|188|163|59|95|145|12|185|144|34|12|127\&quot;,\&quot;enable_user_status\&quot;:false,\&quot;enable_user_tips\&quot;:false,\&quot;invite_only\&quot;:false,\&quot;login_required\&quot;:false,\&quot;must_approve_users\&quot;:false,\&quot;enable_local_logins\&quot;:true,\&quot;enable_local_logins_via_email\&quot;:true,\&quot;allow_new_registrations\&quot;:true,\&quot;enable_signup_cta\&quot;:true,\&quot;facebook_app_id\&quot;:\&quot;\&quot;,\&quot;auth_skip_create_confirm\&quot;:false,\&quot;auth_overrides_email\&quot;:false,\&quot;enable_discourse_connect\&quot;:true,\&quot;discourse_connect_overrides_avatar\&quot;:false,\&quot;hide_email_address_taken\&quot;:false,\&quot;min_username_length\&quot;:3,\&quot;max_username_length\&quot;:20,\&quot;unicode_usernames\&quot;:false,\&quot;min_password_length\&quot;:10,\&quot;min_admin_password_length\&quot;:15,\&quot;email_editable\&quot;:true,\&quot;logout_redirect\&quot;:\&quot;https://kandi.openweaver.com/extlogout\&quot;,\&quot;full_name_required\&quot;:false,\&quot;enable_names\&quot;:true,\&quot;invite_expiry_days\&quot;:90,\&quot;invites_per_page\&quot;:40,\&quot;delete_user_max_post_age\&quot;:60,\&quot;delete_all_posts_max\&quot;:15,\&quot;prioritize_username_in_ux\&quot;:true,\&quot;enable_user_directory\&quot;:true,\&quot;allow_anonymous_posting\&quot;:false,\&quot;anonymous_posting_min_trust_level\&quot;:1,\&quot;allow_users_to_hide_profile\&quot;:true,\&quot;hide_user_profiles_from_public\&quot;:false,\&quot;allow_featured_topic_on_user_profiles\&quot;:false,\&quot;hide_suspension_reasons\&quot;:false,\&quot;ignored_users_count_message_threshold\&quot;:5,\&quot;ignored_users_message_gap_days\&quot;:365,\&quot;user_selected_primary_groups\&quot;:false,\&quot;gravatar_name\&quot;:\&quot;Gravatar\&quot;,\&quot;gravatar_base_url\&quot;:\&quot;www.gravatar.com\&quot;,\&quot;gravatar_login_url\&quot;:\&quot;/emails\&quot;,\&quot;enable_group_directory\&quot;:true,\&quot;enable_category_group_moderation\&quot;:false,\&quot;min_post_length\&quot;:20,\&quot;min_first_post_length\&quot;:20,\&quot;min_personal_message_post_length\&quot;:10,\&quot;max_post_length\&quot;:32000,\&quot;topic_featured_link_enabled\&quot;:true,\&quot;min_topic_views_for_delete_confirm\&quot;:5000,\&quot;min_topic_title_length\&quot;:5,\&quot;max_topic_title_length\&quot;:255,\&quot;enable_filtered_replies_view\&quot;:false,\&quot;min_personal_message_title_length\&quot;:2,\&quot;allow_uncategorized_topics\&quot;:true,\&quot;min_title_similar_length\&quot;:10,\&quot;enable_personal_messages\&quot;:true,\&quot;personal_message_enabled_groups\&quot;:\&quot;11\&quot;,\&quot;edit_history_visible_to_public\&quot;:false,\&quot;delete_removed_posts_after\&quot;:24,\&quot;traditional_markdown_linebreaks\&quot;:false,\&quot;enable_markdown_typographer\&quot;:true,\&quot;enable_markdown_linkify\&quot;:true,\&quot;markdown_linkify_tlds\&quot;:\&quot;com|net|org|io|onion|co|tv|ru|cn|us|uk|me|de|fr|fi|gov\&quot;,\&quot;markdown_typographer_quotation_marks\&quot;:\&quot;“|”|‘|’\&quot;,\&quot;enable_rich_text_paste\&quot;:true,\&quot;suppress_reply_directly_below\&quot;:true,\&quot;suppress_reply_directly_above\&quot;:true,\&quot;max_reply_history\&quot;:1,\&quot;enable_mentions\&quot;:true,\&quot;max_users_notified_per_group_mention\&quot;:100,\&quot;here_mention\&quot;:\&quot;here\&quot;,\&quot;newuser_max_embedded_media\&quot;:1,\&quot;newuser_max_attachments\&quot;:0,\&quot;show_pinned_excerpt_mobile\&quot;:true,\&quot;show_pinned_excerpt_desktop\&quot;:true,\&quot;display_name_on_posts\&quot;:false,\&quot;show_time_gap_days\&quot;:7,\&quot;short_progress_text_threshold\&quot;:10000,\&quot;default_code_lang\&quot;:\&quot;auto\&quot;,\&quot;autohighlight_all_code\&quot;:false,\&quot;highlighted_languages\&quot;:\&quot;bash|c|cpp|csharp|css|diff|go|graphql|ini|java|javascript|json|kotlin|lua|makefile|markdown|objectivec|perl|php|php-template|plaintext|python|python-repl|r|ruby|rust|scss|shell|sql|swift|typescript|xml|yaml|wasm\&quot;,\&quot;show_copy_button_on_codeblocks\&quot;:false,\&quot;enable_emoji\&quot;:true,\&quot;enable_emoji_shortcuts\&quot;:true,\&quot;emoji_set\&quot;:\&quot;twitter\&quot;,\&quot;emoji_autocomplete_min_chars\&quot;:0,\&quot;enable_inline_emoji_translation\&quot;:false,\&quot;code_formatting_style\&quot;:\&quot;code-fences\&quot;,\&quot;allowed_href_schemes\&quot;:\&quot;\&quot;,\&quot;watched_words_regular_expressions\&quot;:false,\&quot;enable_diffhtml_preview\&quot;:false,\&quot;enable_fast_edit\&quot;:true,\&quot;old_post_notice_days\&quot;:14,\&quot;blur_tl0_flagged_posts_media\&quot;:true,\&quot;email_time_window_mins\&quot;:10,\&quot;disable_digest_emails\&quot;:true,\&quot;email_in\&quot;:false,\&quot;enable_imap\&quot;:false,\&quot;enable_smtp\&quot;:false,\&quot;disable_emails\&quot;:\&quot;no\&quot;,\&quot;bounce_score_threshold\&quot;:4,\&quot;enable_secondary_emails\&quot;:true,\&quot;max_image_size_kb\&quot;:4096,\&quot;max_attachment_size_kb\&quot;:8192,\&quot;authorized_extensions\&quot;:\&quot;jpg|jpeg|png|gif|heic|heif|webp\&quot;,\&quot;authorized_extensions_for_staff\&quot;:\&quot;\&quot;,\&quot;max_image_width\&quot;:690,\&quot;max_image_height\&quot;:500,\&quot;prevent_anons_from_downloading_files\&quot;:false,\&quot;secure_uploads\&quot;:false,\&quot;enable_s3_uploads\&quot;:false,\&quot;allow_profile_backgrounds\&quot;:true,\&quot;allow_uploaded_avatars\&quot;:\&quot;0\&quot;,\&quot;default_avatars\&quot;:\&quot;\&quot;,\&quot;external_system_avatars_enabled\&quot;:true,\&quot;external_system_avatars_url\&quot;:\&quot;https://avatars.discourse-cdn.com/v4/letter/{first_letter}/{color}/{size}.png\&quot;,\&quot;external_emoji_url\&quot;:\&quot;https://emoji.discourse-cdn.com\&quot;,\&quot;selectable_avatars_mode\&quot;:\&quot;disabled\&quot;,\&quot;selectable_avatars\&quot;:\&quot;\&quot;,\&quot;allow_staff_to_upload_any_file_in_pm\&quot;:true,\&quot;simultaneous_uploads\&quot;:5,\&quot;composer_media_optimization_image_enabled\&quot;:true,\&quot;composer_media_optimization_image_bytes_optimization_threshold\&quot;:524288,\&quot;composer_media_optimization_image_resize_dimensions_threshold\&quot;:1920,\&quot;composer_media_optimization_image_resize_width_target\&quot;:1920,\&quot;composer_media_optimization_image_resize_pre_multiply\&quot;:false,\&quot;composer_media_optimization_image_resize_linear_rgb\&quot;:false,\&quot;composer_media_optimization_image_encode_quality\&quot;:75,\&quot;composer_media_optimization_debug_mode\&quot;:false,\&quot;composer_ios_media_optimisation_image_enabled\&quot;:false,\&quot;min_trust_level_to_allow_profile_background\&quot;:0,\&quot;min_trust_level_to_allow_user_card_background\&quot;:0,\&quot;min_trust_level_to_allow_ignore\&quot;:2,\&quot;tl1_requires_read_posts\&quot;:30,\&quot;tl3_links_no_follow\&quot;:false,\&quot;tl4_delete_posts_and_topics\&quot;:false,\&quot;enforce_second_factor\&quot;:\&quot;no\&quot;,\&quot;moderators_change_post_ownership\&quot;:false,\&quot;moderators_view_emails\&quot;:false,\&quot;use_admin_ip_allowlist\&quot;:false,\&quot;allowed_iframes\&quot;:\&quot;https://www.google.com/maps/embed?|https://www.openstreetmap.org/export/embed.html?|https://calendar.google.com/calendar/embed?|https://codepen.io/|https://www.instagram.com|http://community.openweaver.com/discobot/certificate.svg|https://community.openweaver.com/discobot/certificate.svg\&quot;,\&quot;can_permanently_delete\&quot;:false,\&quot;max_oneboxes_per_post\&quot;:50,\&quot;reviewable_claiming\&quot;:\&quot;disabled\&quot;,\&quot;reviewable_default_topics\&quot;:false,\&quot;reviewable_default_visibility\&quot;:\&quot;low\&quot;,\&quot;alert_admins_if_errors_per_minute\&quot;:0,\&quot;alert_admins_if_errors_per_hour\&quot;:0,\&quot;max_prints_per_hour_per_user\&quot;:5,\&quot;invite_link_max_redemptions_limit\&quot;:5000,\&quot;invite_link_max_redemptions_limit_users\&quot;:10,\&quot;enable_chunked_encoding\&quot;:true,\&quot;long_polling_base_url\&quot;:\&quot;/\&quot;,\&quot;background_polling_interval\&quot;:60000,\&quot;polling_interval\&quot;:3000,\&quot;anon_polling_interval\&quot;:25000,\&quot;flush_timings_secs\&quot;:60,\&quot;verbose_localization\&quot;:false,\&quot;max_new_topics\&quot;:500,\&quot;enable_safe_mode\&quot;:true,\&quot;enable_experimental_hashtag_autocomplete\&quot;:false,\&quot;experimental_hashtag_search_result_limit\&quot;:20,\&quot;experimental_form_templates\&quot;:false,\&quot;experimental_new_new_view_groups\&quot;:\&quot;\&quot;,\&quot;navigation_menu\&quot;:\&quot;legacy\&quot;,\&quot;default_sidebar_categories\&quot;:\&quot;\&quot;,\&quot;default_sidebar_tags\&quot;:\&quot;\&quot;,\&quot;enable_custom_sidebar_sections\&quot;:\&quot;\&quot;,\&quot;tos_url\&quot;:\&quot;\&quot;,\&quot;privacy_policy_url\&quot;:\&quot;\&quot;,\&quot;faq_url\&quot;:\&quot;\&quot;,\&quot;enable_backups\&quot;:true,\&quot;backup_location\&quot;:\&quot;s3\&quot;,\&quot;maximum_backups\&quot;:3,\&quot;include_s3_uploads_in_backups\&quot;:false,\&quot;use_pg_headlines_for_excerpt\&quot;:false,\&quot;min_search_term_length\&quot;:3,\&quot;log_search_queries\&quot;:true,\&quot;version_checks\&quot;:false,\&quot;suppress_uncategorized_badge\&quot;:true,\&quot;header_dropdown_category_count\&quot;:8,\&quot;slug_generation_method\&quot;:\&quot;ascii\&quot;,\&quot;summary_timeline_button\&quot;:false,\&quot;topic_views_heat_low\&quot;:1000,\&quot;topic_views_heat_medium\&quot;:2000,\&quot;topic_views_heat_high\&quot;:3500,\&quot;topic_post_like_heat_low\&quot;:0.5,\&quot;topic_post_like_heat_medium\&quot;:1.0,\&quot;topic_post_like_heat_high\&quot;:2.0,\&quot;history_hours_low\&quot;:12,\&quot;history_hours_medium\&quot;:24,\&quot;history_hours_high\&quot;:48,\&quot;cold_age_days_low\&quot;:14,\&quot;cold_age_days_medium\&quot;:90,\&quot;cold_age_days_high\&quot;:180,\&quot;global_notice\&quot;:\&quot;\&quot;,\&quot;general_category_id\&quot;:-1,\&quot;default_composer_category\&quot;:\&quot;\&quot;,\&quot;show_create_topics_notice\&quot;:true,\&quot;welcome_topic_id\&quot;:7,\&quot;bootstrap_mode_min_users\&quot;:50,\&quot;bootstrap_mode_enabled\&quot;:false,\&quot;automatically_unpin_topics\&quot;:true,\&quot;read_time_word_count\&quot;:500,\&quot;topic_page_title_includes_category\&quot;:true,\&quot;svg_icon_subset\&quot;:\&quot;\&quot;,\&quot;allow_bulk_invite\&quot;:true,\&quot;use_polymorphic_bookmarks\&quot;:true,\&quot;suggest_weekends_in_date_pickers\&quot;:true,\&quot;disable_mailing_list_mode\&quot;:true,\&quot;default_topics_automatic_unpin\&quot;:true,\&quot;mute_all_categories_by_default\&quot;:false,\&quot;tagging_enabled\&quot;:true,\&quot;tag_style\&quot;:\&quot;simple\&quot;,\&quot;max_tags_per_topic\&quot;:5,\&quot;max_tag_length\&quot;:20,\&quot;min_trust_level_to_tag_topics\&quot;:\&quot;0\&quot;,\&quot;max_tag_search_results\&quot;:5,\&quot;max_tags_in_filter_list\&quot;:30,\&quot;tags_sort_alphabetically\&quot;:false,\&quot;tags_listed_by_group\&quot;:false,\&quot;pm_tags_allowed_for_groups\&quot;:\&quot;\&quot;,\&quot;suppress_overlapping_tags_in_list\&quot;:false,\&quot;remove_muted_tags_from_latest\&quot;:\&quot;always\&quot;,\&quot;force_lowercase_tags\&quot;:true,\&quot;dashboard_hidden_reports\&quot;:\&quot;\&quot;,\&quot;dashboard_visible_tabs\&quot;:\&quot;moderation|security|reports\&quot;,\&quot;dashboard_general_tab_activity_metrics\&quot;:\&quot;page_view_total_reqs|visits|time_to_first_response|likes|flags|user_to_user_private_messages_with_replies\&quot;,\&quot;chat_enabled\&quot;:true,\&quot;chat_allowed_groups\&quot;:\&quot;0\&quot;,\&quot;chat_channel_retention_days\&quot;:90,\&quot;chat_max_direct_message_users\&quot;:20,\&quot;chat_dm_retention_days\&quot;:0,\&quot;chat_allow_archiving_channels\&quot;:false,\&quot;chat_default_channel_id\&quot;:\&quot;\&quot;,\&quot;default_emoji_reactions\&quot;:\&quot;+1|heart|tada\&quot;,\&quot;chat_minimum_message_length\&quot;:1,\&quot;chat_maximum_message_length\&quot;:6000,\&quot;chat_allow_uploads\&quot;:true,\&quot;max_chat_auto_joined_users\&quot;:10000,\&quot;direct_message_enabled_groups\&quot;:\&quot;11\&quot;,\&quot;chat_message_flag_allowed_groups\&quot;:\&quot;11\&quot;,\&quot;max_mentions_per_chat_message\&quot;:5,\&quot;enable_experimental_chat_threaded_discussions\&quot;:false,\&quot;discourse_adplugin_enabled\&quot;:true,\&quot;no_ads_for_personal_messages\&quot;:true,\&quot;no_ads_for_restricted_categories\&quot;:false,\&quot;no_ads_for_groups\&quot;:\&quot;\&quot;,\&quot;no_ads_for_categories\&quot;:\&quot;\&quot;,\&quot;no_ads_for_tags\&quot;:\&quot;\&quot;,\&quot;house_ads_after_nth_topic\&quot;:20,\&quot;house_ads_after_nth_post\&quot;:20,\&quot;house_ads_frequency\&quot;:100,\&quot;adsense_publisher_code\&quot;:\&quot;\&quot;,\&quot;adsense_through_trust_level\&quot;:2,\&quot;adsense_topic_list_top_code\&quot;:\&quot;\&quot;,\&quot;adsense_topic_list_top_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;adsense_mobile_topic_list_top_code\&quot;:\&quot;\&quot;,\&quot;adsense_mobile_topic_list_top_ad_size\&quot;:\&quot;responsive\&quot;,\&quot;adsense_topic_above_post_stream_code\&quot;:\&quot;\&quot;,\&quot;adsense_topic_above_post_stream_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;adsense_mobile_topic_above_post_stream_code\&quot;:\&quot;\&quot;,\&quot;adsense_mobile_topic_above_post_stream_ad_size\&quot;:\&quot;responsive\&quot;,\&quot;adsense_topic_above_suggested_code\&quot;:\&quot;\&quot;,\&quot;adsense_topic_above_suggested_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;adsense_mobile_topic_above_suggested_code\&quot;:\&quot;\&quot;,\&quot;adsense_mobile_topic_above_suggested_ad_size\&quot;:\&quot;responsive\&quot;,\&quot;adsense_post_bottom_code\&quot;:\&quot;\&quot;,\&quot;adsense_post_bottom_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;adsense_mobile_post_bottom_code\&quot;:\&quot;\&quot;,\&quot;adsense_mobile_post_bottom_ad_size\&quot;:\&quot;responsive\&quot;,\&quot;adsense_nth_post_code\&quot;:\&quot;\&quot;,\&quot;dfp_publisher_id\&quot;:\&quot;\&quot;,\&quot;dfp_publisher_id_mobile\&quot;:\&quot;\&quot;,\&quot;dfp_through_trust_level\&quot;:2,\&quot;dfp_topic_list_top_code\&quot;:\&quot;\&quot;,\&quot;dfp_topic_list_top_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;dfp_mobile_topic_list_top_code\&quot;:\&quot;\&quot;,\&quot;dfp_mobile_topic_list_top_ad_sizes\&quot;:\&quot;320*50 - mobile leaderboard\&quot;,\&quot;dfp_target_topic_list_top_key_code\&quot;:\&quot;\&quot;,\&quot;dfp_target_topic_list_top_value_code\&quot;:\&quot;\&quot;,\&quot;dfp_topic_above_post_stream_code\&quot;:\&quot;\&quot;,\&quot;dfp_topic_above_post_stream_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;dfp_mobile_topic_above_post_stream_code\&quot;:\&quot;\&quot;,\&quot;dfp_mobile_topic_above_post_stream_ad_sizes\&quot;:\&quot;320*50 - mobile leaderboard\&quot;,\&quot;dfp_target_topic_above_post_stream_key_code\&quot;:\&quot;\&quot;,\&quot;dfp_target_topic_above_post_stream_value_code\&quot;:\&quot;\&quot;,\&quot;dfp_topic_above_suggested_code\&quot;:\&quot;\&quot;,\&quot;dfp_topic_above_suggested_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;dfp_mobile_topic_above_suggested_code\&quot;:\&quot;\&quot;,\&quot;dfp_mobile_topic_above_suggested_ad_sizes\&quot;:\&quot;320*50 - mobile leaderboard\&quot;,\&quot;dfp_target_topic_above_suggested_key_code\&quot;:\&quot;\&quot;,\&quot;dfp_target_topic_above_suggested_value_code\&quot;:\&quot;\&quot;,\&quot;dfp_nth_post_code\&quot;:\&quot;\&quot;,\&quot;dfp_post_bottom_code\&quot;:\&quot;\&quot;,\&quot;dfp_post_bottom_ad_sizes\&quot;:\&quot;728*90 - leaderboard\&quot;,\&quot;dfp_mobile_post_bottom_code\&quot;:\&quot;\&quot;,\&quot;dfp_mobile_post_bottom_ad_sizes\&quot;:\&quot;320*50 - mobile leaderboard\&quot;,\&quot;dfp_target_post_bottom_key_code\&quot;:\&quot;\&quot;,\&quot;dfp_target_post_bottom_value_code\&quot;:\&quot;\&quot;,\&quot;amazon_through_trust_level\&quot;:2,\&quot;amazon_topic_list_top_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_list_top_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_list_top_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_list_top_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_list_top_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_list_top_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_above_post_stream_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_above_post_stream_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_above_post_stream_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_above_post_stream_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_above_post_stream_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_above_post_stream_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_above_suggested_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_above_suggested_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_topic_above_suggested_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_above_suggested_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_above_suggested_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_topic_above_suggested_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_post_bottom_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_nth_post_code\&quot;:\&quot;\&quot;,\&quot;amazon_post_bottom_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_post_bottom_ad_height_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_post_bottom_src_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_post_bottom_ad_width_code\&quot;:\&quot;\&quot;,\&quot;amazon_mobile_post_bottom_ad_height_code\&quot;:\&quot;\&quot;,\&quot;carbonads_serve_id\&quot;:\&quot;\&quot;,\&quot;carbonads_placement\&quot;:\&quot;\&quot;,\&quot;carbonads_through_trust_level\&quot;:2,\&quot;carbonads_topic_list_top_enabled\&quot;:false,\&quot;carbonads_above_post_stream_enabled\&quot;:false,\&quot;adbutler_publisher_id\&quot;:\&quot;\&quot;,\&quot;adbutler_through_trust_level\&quot;:2,\&quot;adbutler_topic_list_top_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_mobile_topic_list_top_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_topic_above_post_stream_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_mobile_topic_above_post_stream_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_topic_above_suggested_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_mobile_topic_above_suggested_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_post_bottom_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_mobile_post_bottom_zone_id\&quot;:\&quot;\&quot;,\&quot;adbutler_nth_post\&quot;:4,\&quot;adbutler_adserver_hostname\&quot;:\&quot;servedbyadbutler.com\&quot;,\&quot;affiliate_enabled\&quot;:true,\&quot;affiliate_amazon_ca\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_cn\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_co_jp\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_co_uk\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_com\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_com_au\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_com_br\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_com_mx\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_de\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_es\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_fr\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_in\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_it\&quot;:\&quot;\&quot;,\&quot;affiliate_amazon_nl\&quot;:\&quot;\&quot;,\&quot;affiliate_ldlc_com\&quot;:\&quot;\&quot;,\&quot;assign_enabled\&quot;:false,\&quot;assigns_public\&quot;:false,\&quot;assigns_user_url_path\&quot;:\&quot;/u/{username}/activity/assigned\&quot;,\&quot;remind_assigns_frequency\&quot;:0,\&quot;max_assigned_topics\&quot;:10,\&quot;assign_allowed_on_groups\&quot;:\&quot;3\&quot;,\&quot;enable_assign_status\&quot;:false,\&quot;assign_statuses\&quot;:\&quot;New|In Progress|Done\&quot;,\&quot;discourse_automation_enabled\&quot;:false,\&quot;cakeday_enabled\&quot;:true,\&quot;cakeday_emoji\&quot;:\&quot;cake\&quot;,\&quot;cakeday_birthday_enabled\&quot;:true,\&quot;cakeday_birthday_emoji\&quot;:\&quot;birthday\&quot;,\&quot;calendar_enabled\&quot;:false,\&quot;holiday_calendar_topic_id\&quot;:\&quot;\&quot;,\&quot;holiday_status_emoji\&quot;:\&quot;date\&quot;,\&quot;all_day_event_start_time\&quot;:\&quot;\&quot;,\&quot;all_day_event_end_time\&quot;:\&quot;\&quot;,\&quot;calendar_categories\&quot;:\&quot;\&quot;,\&quot;calendar_categories_outlet\&quot;:\&quot;discovery-list-container-top\&quot;,\&quot;working_days\&quot;:\&quot;Monday|Tuesday|Wednesday|Thursday|Friday\&quot;,\&quot;working_day_start_hour\&quot;:8,\&quot;working_day_end_hour\&quot;:17,\&quot;close_to_working_day_hours_extension\&quot;:2,\&quot;discourse_post_event_enabled\&quot;:false,\&quot;discourse_post_event_allowed_on_groups\&quot;:\&quot;\&quot;,\&quot;display_post_event_date_on_topic_title\&quot;:true,\&quot;use_local_event_date\&quot;:false,\&quot;discourse_post_event_allowed_custom_fields\&quot;:\&quot;\&quot;,\&quot;events_calendar_categories\&quot;:\&quot;\&quot;,\&quot;sort_categories_by_event_start_date_enabled\&quot;:false,\&quot;disable_resorting_on_categories_enabled\&quot;:false,\&quot;checklist_enabled\&quot;:true,\&quot;data_explorer_enabled\&quot;:false,\&quot;details_enabled\&quot;:true,\&quot;docs_enabled\&quot;:false,\&quot;docs_categories\&quot;:\&quot;\&quot;,\&quot;docs_tags\&quot;:\&quot;\&quot;,\&quot;docs_add_solved_filter\&quot;:false,\&quot;docs_add_to_top_menu\&quot;:false,\&quot;enable_markdown_footnotes\&quot;:true,\&quot;display_footnotes_inline\&quot;:true,\&quot;discourse_gamification_enabled\&quot;:false,\&quot;discourse_local_dates_email_format\&quot;:\&quot;YYYY-MM-DDTHH:mm:ss[Z]\&quot;,\&quot;discourse_local_dates_enabled\&quot;:true,\&quot;discourse_local_dates_default_formats\&quot;:\&quot;LLL|LTS|LL|LLLL\&quot;,\&quot;discourse_local_dates_default_timezones\&quot;:\&quot;Europe/Paris|America/Los_Angeles\&quot;,\&quot;discourse_math_enabled\&quot;:false,\&quot;discourse_math_provider\&quot;:\&quot;mathjax\&quot;,\&quot;discourse_math_zoom_on_hover\&quot;:false,\&quot;discourse_math_enable_accessibility\&quot;:false,\&quot;discourse_math_enable_asciimath\&quot;:false,\&quot;microsoft_auth_enabled\&quot;:false,\&quot;discourse_narrative_bot_enabled\&quot;:true,\&quot;oauth2_enabled\&quot;:false,\&quot;oauth2_button_title\&quot;:\&quot;with OAuth2\&quot;,\&quot;patreon_enabled\&quot;:false,\&quot;patreon_login_enabled\&quot;:false,\&quot;patreon_donation_prompt_enabled\&quot;:false,\&quot;patreon_donation_prompt_show_after_topics\&quot;:20,\&quot;patreon_donation_prompt_campaign_url\&quot;:\&quot;\&quot;,\&quot;policy_enabled\&quot;:true,\&quot;policy_restrict_to_staff_posts\&quot;:true,\&quot;presence_enabled\&quot;:true,\&quot;presence_max_users_shown\&quot;:5,\&quot;discourse_reactions_enabled\&quot;:true,\&quot;discourse_reactions_like_icon\&quot;:\&quot;heart\&quot;,\&quot;discourse_reactions_reaction_for_like\&quot;:\&quot;heart\&quot;,\&quot;discourse_reactions_enabled_reactions\&quot;:\&quot;+1|laughing|open_mouth|clap|confetti_ball|hugs\&quot;,\&quot;discourse_reactions_desaturated_reaction_panel\&quot;:false,\&quot;solved_enabled\&quot;:true,\&quot;allow_solved_on_all_topics\&quot;:false,\&quot;accept_all_solutions_trust_level\&quot;:4,\&quot;empty_box_on_unsolved\&quot;:false,\&quot;show_filter_by_solved_status\&quot;:false,\&quot;spoiler_enabled\&quot;:true,\&quot;discourse_subscriptions_extra_nav_subscribe\&quot;:false,\&quot;discourse_subscriptions_public_key\&quot;:\&quot;\&quot;,\&quot;discourse_subscriptions_currency\&quot;:\&quot;USD\&quot;,\&quot;discourse_subscriptions_campaign_enabled\&quot;:false,\&quot;discourse_subscriptions_campaign_goal\&quot;:100,\&quot;discourse_subscriptions_campaign_type\&quot;:\&quot;Amount\&quot;,\&quot;discourse_subscriptions_campaign_banner_location\&quot;:\&quot;Top\&quot;,\&quot;discourse_subscriptions_campaign_banner_bg_image\&quot;:\&quot;\&quot;,\&quot;discourse_subscriptions_campaign_banner_shadow_color\&quot;:\&quot;2F70AC\&quot;,\&quot;discourse_subscriptions_campaign_show_contributors\&quot;:true,\&quot;discourse_subscriptions_campaign_product\&quot;:\&quot;\&quot;,\&quot;discourse_subscriptions_campaign_amount_raised\&quot;:0.0,\&quot;discourse_subscriptions_campaign_subscribers\&quot;:0,\&quot;discourse_templates_enabled\&quot;:true,\&quot;voting_enabled\&quot;:true,\&quot;voting_show_who_voted\&quot;:true,\&quot;voting_show_votes_on_profile\&quot;:true,\&quot;user_notes_enabled\&quot;:false,\&quot;yearly_review_enabled\&quot;:false,\&quot;zendesk_url\&quot;:\&quot;https://your-url.zendesk.com/api/v2\&quot;,\&quot;zendesk_enabled\&quot;:false,\&quot;hide_admin_customize_themes\&quot;:false,\&quot;hide_admin_customize_colors\&quot;:false,\&quot;poll_enabled\&quot;:true,\&quot;poll_maximum_options\&quot;:20,\&quot;poll_minimum_trust_level_to_create\&quot;:4,\&quot;poll_groupable_user_fields\&quot;:\&quot;\&quot;,\&quot;poll_export_data_explorer_query_id\&quot;:-16,\&quot;available_locales\&quot;:\&quot;[{\\\&quot;name\\\&quot;:\\\&quot;اللغة العربية\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ar\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;беларуская мова\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;be\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;български език\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;bg\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;bosanski jezik\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;bs_BA\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;català\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ca\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;čeština\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;cs\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;dansk\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;da\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Deutsch\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;de\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;ελληνικά\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;el\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;English (US)\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;en\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;English (UK)\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;en_GB\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Español\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;es\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;eesti\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;et\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;فارسی\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;fa_IR\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;suomi\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;fi\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Français\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;fr\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;galego\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;gl\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;עברית\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;he\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;hrvatski jezik\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;hr\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;magyar\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;hu\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Հայերեն\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;hy\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Indonesian\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;id\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Italiano\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;it\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;日本語\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ja\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;한국어\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ko\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;lietuvių kalba\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;lt\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;latviešu valoda\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;lv\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Norsk bokmål\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;nb_NO\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Nederlands\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;nl\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;polski\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;pl_PL\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Português\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;pt\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Português (BR)\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;pt_BR\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;limba română\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ro\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Русский\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ru\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;slovenčina\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;sk\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;slovenščina\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;sl\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Shqip\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;sq\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;српски језик\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;sr\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;svenska\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;sv\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Kiswahili\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;sw\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;తెలుగు\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;te\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;ไทย\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;th\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Türkçe\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;tr_TR\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;українська мова\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;uk\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;اردو\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;ur\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;Việt Nam\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;vi\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;简体中文\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;zh_CN\\\&quot;},{\\\&quot;name\\\&quot;:\\\&quot;繁體中文\\\&quot;,\\\&quot;value\\\&quot;:\\\&quot;zh_TW\\\&quot;}]\&quot;,\&quot;require_invite_code\&quot;:false,\&quot;site_logo_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/5d6f754f78bc6bd744a6b83bdea25906a4bc4b64.png\&quot;,\&quot;site_logo_small_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/cdd2e4fbb8c8985e4589b133bc1d49d44e366130.png\&quot;,\&quot;site_mobile_logo_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/5d6f754f78bc6bd744a6b83bdea25906a4bc4b64.png\&quot;,\&quot;site_favicon_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/cdd2e4fbb8c8985e4589b133bc1d49d44e366130_2_32x32.png\&quot;,\&quot;site_logo_dark_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/d275e6751cfd5f9d2aa11f6364366a6e6bdd1f96.png\&quot;,\&quot;site_logo_small_dark_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/9e755e1c9c232b6d301ff556cbdac4abd3632799.png\&quot;,\&quot;site_mobile_logo_dark_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/d275e6751cfd5f9d2aa11f6364366a6e6bdd1f96.png\&quot;}&quot;,&quot;customHTML&quot;:&quot;{\&quot;top\&quot;:\&quot;\&quot;,\&quot;footer\&quot;:\&quot;\&quot;}&quot;,&quot;banner&quot;:&quot;{}&quot;,&quot;customEmoji&quot;:&quot;[]&quot;,&quot;isReadOnly&quot;:&quot;false&quot;,&quot;isStaffWritesOnly&quot;:&quot;false&quot;,&quot;activatedThemes&quot;:&quot;{\&quot;4\&quot;:\&quot;discourse-category-banners\&quot;,\&quot;10\&quot;:\&quot;Discourse Clickable Topic\&quot;,\&quot;3\&quot;:\&quot;Custom Header Links\&quot;,\&quot;7\&quot;:\&quot;Modern Category + Group Boxes\&quot;,\&quot;16\&quot;:\&quot;Discourse Loading Slider\&quot;,\&quot;18\&quot;:\&quot;Air Theme\&quot;,\&quot;1\&quot;:\&quot;Default\&quot;,\&quot;17\&quot;:\&quot;discourse-search-banner\&quot;,\&quot;5\&quot;:\&quot;discourse-homepage-feature-component\&quot;}&quot;,&quot;topic_1541&quot;:&quot;{\&quot;post_stream\&quot;:{\&quot;posts\&quot;:[{\&quot;id\&quot;:1804,\&quot;name\&quot;:\&quot;Open Weaver\&quot;,\&quot;username\&quot;:\&quot;OpenWeaver\&quot;,\&quot;avatar_template\&quot;:\&quot;/user_avatar/community.openweaver.com/openweaver/{size}/539_2.png\&quot;,\&quot;created_at\&quot;:\&quot;2022-09-30T15:19:35.683Z\&quot;,\&quot;cooked\&quot;:\&quot;\\u003cp\\u003e\\u003cdiv class=\\\&quot;lightbox-wrapper\\\&quot;\\u003e\\u003ca class=\\\&quot;lightbox\\\&quot; href=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png\\\&quot; data-download-href=\\\&quot;/uploads/short-url/jnGdfXunrxnUXOX6kLU6RK3j8ST.png?dl=1\\\&quot; title=\\\&quot;Candy Crush Banner\\\&quot;\\u003e\\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_690x115.png\\\&quot; alt=\\\&quot;Candy Crush Banner\\\&quot; data-base62-sha1=\\\&quot;jnGdfXunrxnUXOX6kLU6RK3j8ST\\\&quot; width=\\\&quot;690\\\&quot; height=\\\&quot;115\\\&quot; srcset=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_690x115.png, https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_1035x172.png 1.5x, https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png 2x\\\&quot; data-dominant-color=\\\&quot;F3BF45\\\&quot;\\u003e\\u003cdiv class=\\\&quot;meta\\\&quot;\\u003e\\n\\u003csvg class=\\\&quot;fa d-icon d-icon-far-image svg-icon\\\&quot; aria-hidden=\\\&quot;true\\\&quot;\\u003e\\u003cuse href=\\\&quot;#far-image\\\&quot;\\u003e\\u003c/use\\u003e\\u003c/svg\\u003e\\u003cspan class=\\\&quot;filename\\\&quot;\\u003eCandy Crush Banner\\u003c/span\\u003e\\u003cspan class=\\\&quot;informations\\\&quot;\\u003e1230×206 98.7 KB\\u003c/span\\u003e\\u003csvg class=\\\&quot;fa d-icon d-icon-discourse-expand svg-icon\\\&quot; aria-hidden=\\\&quot;true\\\&quot;\\u003e\\u003cuse href=\\\&quot;#discourse-expand\\\&quot;\\u003e\\u003c/use\\u003e\\u003c/svg\\u003e\\n\\u003c/div\\u003e\\u003c/a\\u003e\\u003c/div\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eThis kandi kit for Candy Crush (one of the most popular games), has been rewritten using the Phaser HTML5 game engine along with Typescript language. AngularJs is also used for creating game directives, so they can be easily included in the angular app.  We’ll be using TypeScript, Gulp and Webpack to build a fully-functional Candy Crush game.\\u003c/p\\u003e\\n\\u003cp\\u003eHere is how you can build your own Candy Crush game through this course using the kandi 1-click solution kit. You will have a working model at the end of the session!\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003eLearning Objectives\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eAfter completing this course you will:\\u003c/p\\u003e\\n\\u003cul\\u003e\\n\\u003cli\\u003eHave a good working knowledge of the Fundamentals of Gaming Technology.\\u003c/li\\u003e\\n\\u003cli\\u003eLearn various concepts involving the use of a toolkit called gulp, which uses Node.js platform, and develop HTML5 games for desktop as well as mobile using Phaser 2D game framework.\\u003c/li\\u003e\\n\\u003cli\\u003eHave a fully functional prototype that you can customize, showcase, and share, using the existing source code.\\u003c/li\\u003e\\n\\u003c/ul\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003eComplete this course in 3 easy steps to earn your certificate!\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003cem\\u003e\\u003cstrong\\u003eSTEP 1 :\\u003c/strong\\u003e\\u003c/em\\u003e Watch the below self-guided tutorial.\\u003cbr\\u003e\\n\\u003cem\\u003e\\u003cstrong\\u003eSTEP 2 :\\u003c/strong\\u003e\\u003c/em\\u003e Practice as you watch the video by installing and working with the kandi 1-click solution kit.\\u003cbr\\u003e\\n\\u003cem\\u003e\\u003cstrong\\u003eSTEP 3 :\\u003c/strong\\u003e\\u003c/em\\u003e Complete the assessment to receive your certificate.\\u003c/p\\u003e\\n\\u003chr\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003eSTEP 1 : TUTORIAL\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eWatch this self-guided tutorial on Gulp to optimize assets like images and spinning up web server aspect; game engine called Phaser HTML5 engine for 2D structure framework; Angular JS and finally an IDE of your choice to build your own Candy Crush game.\\u003c/p\\u003e\\n\\u003cdiv class=\\\&quot;onebox lazyYT lazyYT-container\\\&quot; data-youtube-id=\\\&quot;Y7zTteVo7TM\\\&quot; data-youtube-title=\\\&quot;How to Build a Candy Crush Game | Source Code included | kandi tutorial\\\&quot; data-parameters=\\\&quot;feature=oembed\\u0026amp;wmode=opaque\\\&quot;\\u003e\\n  \\u003ca href=\\\&quot;https://www.youtube.com/watch?v=Y7zTteVo7TM\\\&quot; target=\\\&quot;_blank\\\&quot; rel=\\\&quot;noopener\\\&quot;\\u003e\\n    \\u003cimg class=\\\&quot;ytp-thumbnail-image\\\&quot; src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/c1bfccf54d74917e6ab8e5d71f0f922740f5e3a4.jpeg\\\&quot; title=\\\&quot;How to Build a Candy Crush Game | Source Code included | kandi tutorial\\\&quot; width=\\\&quot;480\\\&quot; height=\\\&quot;360\\\&quot;\\u003e\\n  \\u003c/a\\u003e\\n\\u003c/div\\u003e\\n\\n\\u003chr\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003eSTEP 2 : PRACTICAL EXERCISE\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eClick the below button to access the candy crush game kandi kit. This kit has all the required dependencies and resources you need to build your application.\\u003c/p\\u003e\\n\\u003cp\\u003ekandi 1click kits include JavaScript, HTML and helps you learn to use a toolkit called gulp, which uses Node.js platform, learn to develop HTML5 games for desktop as well as mobile using Phaser 2D game framework and create game-directives using AngularJS as well.\\u003c/p\\u003e\\n\\u003cp\\u003eClick on the 1-Click Installer button on the kandi kit page to install the candy crush game kit. On installing and running this kit, you will have a working model that you can customize and use in your project.\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003ca href=\\\&quot;https://kandi.openweaver.com/collections/gaming/candy-crush\\\&quot;\\u003e\\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/5/53c3b6ee26f0df0f295ef0bb555be4b86f965ea6.png\\\&quot; alt=\\\&quot;kandi 1-Click Kit - Dark\\\&quot; data-base62-sha1=\\\&quot;bX0WGF9nESKFRAyRgssRAqMtRHg\\\&quot; width=\\\&quot;221\\\&quot; height=\\\&quot;40\\\&quot;\\u003e\\u003c/a\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eAfter completing this step, proceed to STEP 3.\\u003c/p\\u003e\\n\\u003chr\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003eSTEP 3 : ASSESSMENT\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eComplete a short assessment and earn your certificate now. \\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/3549ad794905261371b743083a675d86e569cdbd.png\\\&quot; alt=\\\&quot;Congrats\\\&quot; data-base62-sha1=\\\&quot;7Bp9TeYTrErMVKlOrrtTRixMxK5\\\&quot; width=\\\&quot;43\\\&quot; height=\\\&quot;43\\\&quot;\\u003e\\u003cbr\\u003e\\n\\u003ca href=\\\&quot;https://forms.gle/vgzmNV5niKjfJskG8\\\&quot;\\u003e\\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/5/5b37078a7e828a294b3dc58cc5c3f9fa24ed3a8a.png\\\&quot; alt=\\\&quot;Take Assessment\\\&quot; data-base62-sha1=\\\&quot;d0VlGVTT1veBeS2ycFSTMn6lIDg\\\&quot; width=\\\&quot;221\\\&quot; height=\\\&quot;40\\\&quot;\\u003e\\u003c/a\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eYour assessment will be reviewed and you will receive a verified certificate via email within a week.\\u003c/p\\u003e\\n\\u003chr\\u003e\\n\\u003cp\\u003e\\u003cstrong\\u003eSUPPORT\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003eReach out to us by replying below for any help you may need with this course.\\u003c/p\\u003e\\n\\u003cp\\u003eWe hope you enjoyed using kandi! Continue your learning journey with kandi \\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/3549ad794905261371b743083a675d86e569cdbd.png\\\&quot; alt=\\\&quot;Congrats\\\&quot; data-base62-sha1=\\\&quot;7Bp9TeYTrErMVKlOrrtTRixMxK5\\\&quot; width=\\\&quot;43\\\&quot; height=\\\&quot;43\\\&quot;\\u003e\\u003cbr\\u003e\\n\\u003cbr\\u003e\\u003cbr\\u003e\\n\\u003cstrong\\u003eEXPLORE MORE TOPICS:\\u003c/strong\\u003e\\u003c/p\\u003e\\n\\u003cp\\u003e\\u003ca href=\\\&quot;https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-2048-interactive-puzzle-game-using-node-js/1542/1\\\&quot;\\u003e\\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/3/3b90133de391b5e6c2229b62eb3b694ca08caa45.jpeg\\\&quot; alt=\\\&quot;2048 Game\\\&quot; data-base62-sha1=\\\&quot;8uUQIOWcLm8uxn5fPQuh4aAdmV7\\\&quot; width=\\\&quot;234\\\&quot; height=\\\&quot;197\\\&quot;\\u003e\\u003c/a\\u003e \\u003ca href=\\\&quot;https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-angry-birds-game-in-python-using-pygame/1544/1\\\&quot;\\u003e\\u003cimg src=\\\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/f/fe784a93b144c018123cfa4407518cbe0e98ea13.jpeg\\\&quot; alt=\\\&quot;Angry Birds\\\&quot; data-base62-sha1=\\\&quot;Aj901Jix3DrknTdwnjvjkm7AJSX\\\&quot; width=\\\&quot;234\\\&quot; height=\\\&quot;197\\\&quot;\\u003e\\u003c/a\\u003e\\u003c/p\\u003e\&quot;,\&quot;post_number\&quot;:1,\&quot;post_type\&quot;:1,\&quot;updated_at\&quot;:\&quot;2023-02-13T12:06:07.328Z\&quot;,\&quot;reply_count\&quot;:0,\&quot;reply_to_post_number\&quot;:null,\&quot;quote_count\&quot;:0,\&quot;incoming_link_count\&quot;:161267,\&quot;reads\&quot;:3464,\&quot;readers_count\&quot;:3463,\&quot;score\&quot;:788788.8,\&quot;yours\&quot;:false,\&quot;topic_id\&quot;:1541,\&quot;topic_slug\&quot;:\&quot;learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript\&quot;,\&quot;display_username\&quot;:\&quot;Open Weaver\&quot;,\&quot;primary_group_name\&quot;:null,\&quot;flair_name\&quot;:null,\&quot;flair_url\&quot;:null,\&quot;flair_bg_color\&quot;:null,\&quot;flair_color\&quot;:null,\&quot;version\&quot;:10,\&quot;can_edit\&quot;:false,\&quot;can_delete\&quot;:false,\&quot;can_recover\&quot;:false,\&quot;can_wiki\&quot;:false,\&quot;link_counts\&quot;:[{\&quot;url\&quot;:\&quot;https://kandi.openweaver.com/collections/gaming/candy-crush\&quot;,\&quot;internal\&quot;:false,\&quot;reflection\&quot;:false,\&quot;title\&quot;:\&quot;Build Candy Crush in TypeScript | kandi\&quot;,\&quot;clicks\&quot;:13836},{\&quot;url\&quot;:\&quot;https://forms.gle/vgzmNV5niKjfJskG8\&quot;,\&quot;internal\&quot;:false,\&quot;reflection\&quot;:false,\&quot;clicks\&quot;:2246},{\&quot;url\&quot;:\&quot;https://www.youtube.com/watch?v=Y7zTteVo7TM\&quot;,\&quot;internal\&quot;:false,\&quot;reflection\&quot;:false,\&quot;title\&quot;:\&quot;How to Build a Candy Crush Game | Source Code included | kandi tutorial - YouTube\&quot;,\&quot;clicks\&quot;:140},{\&quot;url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png\&quot;,\&quot;internal\&quot;:false,\&quot;reflection\&quot;:false,\&quot;title\&quot;:\&quot;87d696d8322fa5478b30d1cf073cfb68aad83c83.png\&quot;,\&quot;clicks\&quot;:0},{\&quot;url\&quot;:\&quot;https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-angry-birds-game-in-python-using-pygame/1544\&quot;,\&quot;internal\&quot;:true,\&quot;reflection\&quot;:false,\&quot;title\&quot;:\&quot;Learn how to Develop a Gaming app like Angry Birds Game in Python using PyGame\&quot;,\&quot;clicks\&quot;:0},{\&quot;url\&quot;:\&quot;https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-2048-interactive-puzzle-game-using-node-js/1542\&quot;,\&quot;internal\&quot;:true,\&quot;reflection\&quot;:false,\&quot;title\&quot;:\&quot;Learn how to Develop a Gaming app like 2048 Interactive Puzzle Game Using Node JS\&quot;,\&quot;clicks\&quot;:0},{\&quot;url\&quot;:\&quot;https://community.openweaver.com/t/rewind-2022-kandi-from-open-weaver/13900\&quot;,\&quot;internal\&quot;:true,\&quot;reflection\&quot;:true,\&quot;title\&quot;:\&quot;Rewind 2022 - kandi from Open Weaver\&quot;,\&quot;clicks\&quot;:19}],\&quot;read\&quot;:true,\&quot;user_title\&quot;:\&quot;\&quot;,\&quot;bookmarked\&quot;:false,\&quot;actions_summary\&quot;:[{\&quot;id\&quot;:2,\&quot;count\&quot;:10}],\&quot;moderator\&quot;:false,\&quot;admin\&quot;:true,\&quot;staff\&quot;:true,\&quot;user_id\&quot;:1,\&quot;hidden\&quot;:false,\&quot;trust_level\&quot;:4,\&quot;deleted_at\&quot;:null,\&quot;user_deleted\&quot;:false,\&quot;edit_reason\&quot;:null,\&quot;can_view_edit_history\&quot;:false,\&quot;wiki\&quot;:false,\&quot;calendar_details\&quot;:[],\&quot;reactions\&quot;:[{\&quot;id\&quot;:\&quot;heart\&quot;,\&quot;type\&quot;:\&quot;emoji\&quot;,\&quot;count\&quot;:10}],\&quot;current_user_reaction\&quot;:null,\&quot;reaction_users_count\&quot;:10,\&quot;current_user_used_main_reaction\&quot;:false,\&quot;can_accept_answer\&quot;:false,\&quot;can_unaccept_answer\&quot;:false,\&quot;accepted_answer\&quot;:false,\&quot;can_vote\&quot;:false},{\&quot;id\&quot;:15931,\&quot;name\&quot;:\&quot;Open Weaver\&quot;,\&quot;username\&quot;:\&quot;OpenWeaver\&quot;,\&quot;avatar_template\&quot;:\&quot;/user_avatar/community.openweaver.com/openweaver/{size}/539_2.png\&quot;,\&quot;created_at\&quot;:\&quot;2023-01-10T08:25:14.673Z\&quot;,\&quot;cooked\&quot;:\&quot;\\u003cp\\u003eIf you have completed and submitted the assessment, you will receive your certificate \\u003cstrong\\u003evia email\\u003c/strong\\u003e (from \\u003ca href=\\\&quot;mailto:kandi@openweaver.com\\\&quot;\\u003ekandi@openweaver.com\\u003c/a\\u003e) within \\u003cstrong\\u003e7 business days\\u003c/strong\\u003e from assessment submission.\\u003c/p\\u003e\&quot;,\&quot;post_number\&quot;:27,\&quot;post_type\&quot;:1,\&quot;updated_at\&quot;:\&quot;2023-01-10T08:25:14.673Z\&quot;,\&quot;reply_count\&quot;:0,\&quot;reply_to_post_number\&quot;:null,\&quot;quote_count\&quot;:0,\&quot;incoming_link_count\&quot;:397,\&quot;reads\&quot;:646,\&quot;readers_count\&quot;:645,\&quot;score\&quot;:2041.4,\&quot;yours\&quot;:false,\&quot;topic_id\&quot;:1541,\&quot;topic_slug\&quot;:\&quot;learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript\&quot;,\&quot;display_username\&quot;:\&quot;Open Weaver\&quot;,\&quot;primary_group_name\&quot;:null,\&quot;flair_name\&quot;:null,\&quot;flair_url\&quot;:null,\&quot;flair_bg_color\&quot;:null,\&quot;flair_color\&quot;:null,\&quot;version\&quot;:1,\&quot;can_edit\&quot;:false,\&quot;can_delete\&quot;:false,\&quot;can_recover\&quot;:false,\&quot;can_wiki\&quot;:false,\&quot;read\&quot;:true,\&quot;user_title\&quot;:\&quot;\&quot;,\&quot;bookmarked\&quot;:false,\&quot;actions_summary\&quot;:[{\&quot;id\&quot;:2,\&quot;count\&quot;:3}],\&quot;moderator\&quot;:false,\&quot;admin\&quot;:true,\&quot;staff\&quot;:true,\&quot;user_id\&quot;:1,\&quot;hidden\&quot;:false,\&quot;trust_level\&quot;:4,\&quot;deleted_at\&quot;:null,\&quot;user_deleted\&quot;:false,\&quot;edit_reason\&quot;:null,\&quot;can_view_edit_history\&quot;:false,\&quot;wiki\&quot;:false,\&quot;reactions\&quot;:[{\&quot;id\&quot;:\&quot;heart\&quot;,\&quot;type\&quot;:\&quot;emoji\&quot;,\&quot;count\&quot;:3},{\&quot;id\&quot;:\&quot;+1\&quot;,\&quot;type\&quot;:\&quot;emoji\&quot;,\&quot;count\&quot;:1}],\&quot;current_user_reaction\&quot;:null,\&quot;reaction_users_count\&quot;:4,\&quot;current_user_used_main_reaction\&quot;:false,\&quot;can_accept_answer\&quot;:false,\&quot;can_unaccept_answer\&quot;:false,\&quot;accepted_answer\&quot;:false}],\&quot;stream\&quot;:[1804,15931]},\&quot;timeline_lookup\&quot;:[[1,154],[2,52]],\&quot;suggested_topics\&quot;:[],\&quot;tags\&quot;:[\&quot;open-source-project\&quot;],\&quot;tags_descriptions\&quot;:{},\&quot;id\&quot;:1541,\&quot;title\&quot;:\&quot;Learn how to Develop a Gaming app like Candy Crush Using JavaScript\&quot;,\&quot;fancy_title\&quot;:\&quot;Learn how to Develop a Gaming app like Candy Crush Using JavaScript\&quot;,\&quot;posts_count\&quot;:2,\&quot;created_at\&quot;:\&quot;2022-09-30T15:19:35.611Z\&quot;,\&quot;views\&quot;:158771,\&quot;reply_count\&quot;:6,\&quot;like_count\&quot;:13,\&quot;last_posted_at\&quot;:\&quot;2023-01-10T08:25:14.673Z\&quot;,\&quot;visible\&quot;:true,\&quot;closed\&quot;:false,\&quot;archived\&quot;:false,\&quot;has_summary\&quot;:false,\&quot;archetype\&quot;:\&quot;regular\&quot;,\&quot;slug\&quot;:\&quot;learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript\&quot;,\&quot;category_id\&quot;:18,\&quot;word_count\&quot;:1237,\&quot;deleted_at\&quot;:null,\&quot;user_id\&quot;:1,\&quot;featured_link\&quot;:null,\&quot;pinned_globally\&quot;:false,\&quot;pinned_at\&quot;:null,\&quot;pinned_until\&quot;:null,\&quot;image_url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_1024x171.png\&quot;,\&quot;slow_mode_seconds\&quot;:0,\&quot;draft\&quot;:null,\&quot;draft_key\&quot;:\&quot;topic_1541\&quot;,\&quot;draft_sequence\&quot;:null,\&quot;unpinned\&quot;:null,\&quot;pinned\&quot;:false,\&quot;current_post_number\&quot;:1,\&quot;highest_post_number\&quot;:27,\&quot;deleted_by\&quot;:null,\&quot;actions_summary\&quot;:[{\&quot;id\&quot;:4,\&quot;count\&quot;:0,\&quot;hidden\&quot;:false,\&quot;can_act\&quot;:false},{\&quot;id\&quot;:8,\&quot;count\&quot;:0,\&quot;hidden\&quot;:false,\&quot;can_act\&quot;:false},{\&quot;id\&quot;:7,\&quot;count\&quot;:0,\&quot;hidden\&quot;:false,\&quot;can_act\&quot;:false}],\&quot;chunk_size\&quot;:20,\&quot;bookmarked\&quot;:false,\&quot;bookmarks\&quot;:[],\&quot;topic_timer\&quot;:null,\&quot;message_bus_last_id\&quot;:232,\&quot;participant_count\&quot;:1,\&quot;show_read_indicator\&quot;:false,\&quot;thumbnails\&quot;:[{\&quot;max_width\&quot;:null,\&quot;max_height\&quot;:null,\&quot;width\&quot;:1230,\&quot;height\&quot;:206,\&quot;url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png\&quot;},{\&quot;max_width\&quot;:1024,\&quot;max_height\&quot;:1024,\&quot;width\&quot;:1024,\&quot;height\&quot;:171,\&quot;url\&quot;:\&quot;https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_1024x171.png\&quot;}],\&quot;slow_mode_enabled_until\&quot;:null,\&quot;tags_disable_ads\&quot;:false,\&quot;valid_reactions\&quot;:[\&quot;heart\&quot;,\&quot;+1\&quot;,\&quot;laughing\&quot;,\&quot;open_mouth\&quot;,\&quot;clap\&quot;,\&quot;confetti_ball\&quot;,\&quot;hugs\&quot;],\&quot;can_vote\&quot;:false,\&quot;vote_count\&quot;:0,\&quot;user_voted\&quot;:false,\&quot;discourse_zendesk_plugin_zendesk_id\&quot;:null,\&quot;discourse_zendesk_plugin_zendesk_url\&quot;:\&quot;https://your-url.zendesk.com/agent/tickets/\&quot;,\&quot;details\&quot;:{\&quot;can_edit\&quot;:false,\&quot;notification_level\&quot;:1,\&quot;participants\&quot;:[{\&quot;id\&quot;:1,\&quot;username\&quot;:\&quot;OpenWeaver\&quot;,\&quot;name\&quot;:\&quot;Open Weaver\&quot;,\&quot;avatar_template\&quot;:\&quot;/user_avatar/community.openweaver.com/openweaver/{size}/539_2.png\&quot;,\&quot;post_count\&quot;:2,\&quot;primary_group_name\&quot;:null,\&quot;flair_name\&quot;:null,\&quot;flair_url\&quot;:null,\&quot;flair_color\&quot;:null,\&quot;flair_bg_color\&quot;:null,\&quot;admin\&quot;:true,\&quot;trust_level\&quot;:4}],\&quot;created_by\&quot;:{\&quot;id\&quot;:1,\&quot;username\&quot;:\&quot;OpenWeaver\&quot;,\&quot;name\&quot;:\&quot;Open Weaver\&quot;,\&quot;avatar_template\&quot;:\&quot;/user_avatar/community.openweaver.com/openweaver/{size}/539_2.png\&quot;},\&quot;last_poster\&quot;:{\&quot;id\&quot;:1,\&quot;username\&quot;:\&quot;OpenWeaver\&quot;,\&quot;name\&quot;:\&quot;Open Weaver\&quot;,\&quot;avatar_template\&quot;:\&quot;/user_avatar/community.openweaver.com/openweaver/{size}/539_2.png\&quot;},\&quot;links\&quot;:[{\&quot;url\&quot;:\&quot;https://kandi.openweaver.com/collections/gaming/candy-crush\&quot;,\&quot;title\&quot;:\&quot;Build Candy Crush in TypeScript | kandi\&quot;,\&quot;internal\&quot;:false,\&quot;attachment\&quot;:false,\&quot;reflection\&quot;:false,\&quot;clicks\&quot;:13836,\&quot;user_id\&quot;:1,\&quot;domain\&quot;:\&quot;kandi.openweaver.com\&quot;,\&quot;root_domain\&quot;:\&quot;openweaver.com\&quot;},{\&quot;url\&quot;:\&quot;https://forms.gle/vgzmNV5niKjfJskG8\&quot;,\&quot;title\&quot;:null,\&quot;internal\&quot;:false,\&quot;attachment\&quot;:false,\&quot;reflection\&quot;:false,\&quot;clicks\&quot;:2246,\&quot;user_id\&quot;:1,\&quot;domain\&quot;:\&quot;forms.gle\&quot;,\&quot;root_domain\&quot;:\&quot;forms.gle\&quot;},{\&quot;url\&quot;:\&quot;https://www.youtube.com/watch?v=Y7zTteVo7TM\&quot;,\&quot;title\&quot;:\&quot;How to Build a Candy Crush Game | Source Code included | kandi tutorial - YouTube\&quot;,\&quot;internal\&quot;:false,\&quot;attachment\&quot;:false,\&quot;reflection\&quot;:false,\&quot;clicks\&quot;:140,\&quot;user_id\&quot;:1,\&quot;domain\&quot;:\&quot;www.youtube.com\&quot;,\&quot;root_domain\&quot;:\&quot;youtube.com\&quot;},{\&quot;url\&quot;:\&quot;https://community.openweaver.com/t/rewind-2022-kandi-from-open-weaver/13900\&quot;,\&quot;title\&quot;:\&quot;Rewind 2022 - kandi from Open Weaver\&quot;,\&quot;internal\&quot;:true,\&quot;attachment\&quot;:false,\&quot;reflection\&quot;:true,\&quot;clicks\&quot;:19,\&quot;user_id\&quot;:1,\&quot;domain\&quot;:\&quot;community.openweaver.com\&quot;,\&quot;root_domain\&quot;:\&quot;openweaver.com\&quot;}]}}&quot;}"></div>
+      </discourse-assets-json>
+      <discourse-assets-icons></discourse-assets-icons>
+    </discourse-assets>
+
+      
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5H5VR96"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <noscript data-path="/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541">
+      <header>
+  <a href="/">
+    Open Weaver
+  </a>
+</header>
+
+
+      <div id="main-outlet" class="wrap" role="main">
+        <!-- preload-content: -->
+          <div id="topic-title">
+    <h1>
+      <a href="/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541">Learn how to Develop a Gaming app like Candy Crush Using JavaScript</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://community.openweaver.com/c/learning-hub-gaming/18" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9B5EFF'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Learning Hub - Gaming</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='https://community.openweaver.com/tag/open-source-project' class='discourse-tag' rel="tag">open-source-project</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Open Weaver'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/5d6f754f78bc6bd744a6b83bdea25906a4bc4b64.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://community.openweaver.com/u/OpenWeaver'><span itemprop='name'>OpenWeaver</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541">
+
+            <link itemprop="image" href="https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-09-30T15:19:35Z' class='post-time'>
+                September 30, 2022,  3:19pm
+              </time>
+              <meta itemprop='dateModified' content='2023-02-13T12:06:07Z'>
+          <span itemprop='position'>1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><div class="lightbox-wrapper"><a class="lightbox" href="https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png" data-download-href="/uploads/short-url/jnGdfXunrxnUXOX6kLU6RK3j8ST.png?dl=1" title="Candy Crush Banner"><img src="https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_690x115.png" alt="Candy Crush Banner" data-base62-sha1="jnGdfXunrxnUXOX6kLU6RK3j8ST" width="690" height="115" srcset="https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_690x115.png, https://global.discourse-cdn.com/business7/uploads/openweaver/optimized/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83_2_1035x172.png 1.5x, https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/87d696d8322fa5478b30d1cf073cfb68aad83c83.png 2x" data-dominant-color="F3BF45"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">Candy Crush Banner</span><span class="informations">1230×206 98.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>This kandi kit for Candy Crush (one of the most popular games), has been rewritten using the Phaser HTML5 game engine along with Typescript language. AngularJs is also used for creating game directives, so they can be easily included in the angular app.  We’ll be using TypeScript, Gulp and Webpack to build a fully-functional Candy Crush game.</p>
+<p>Here is how you can build your own Candy Crush game through this course using the kandi 1-click solution kit. You will have a working model at the end of the session!</p>
+<p><strong>Learning Objectives</strong></p>
+<p>After completing this course you will:</p>
+<ul>
+<li>Have a good working knowledge of the Fundamentals of Gaming Technology.</li>
+<li>Learn various concepts involving the use of a toolkit called gulp, which uses Node.js platform, and develop HTML5 games for desktop as well as mobile using Phaser 2D game framework.</li>
+<li>Have a fully functional prototype that you can customize, showcase, and share, using the existing source code.</li>
+</ul>
+<p><strong>Complete this course in 3 easy steps to earn your certificate!</strong></p>
+<p><em><strong>STEP 1 :</strong></em> Watch the below self-guided tutorial.<br>
+<em><strong>STEP 2 :</strong></em> Practice as you watch the video by installing and working with the kandi 1-click solution kit.<br>
+<em><strong>STEP 3 :</strong></em> Complete the assessment to receive your certificate.</p>
+<hr>
+<p><strong>STEP 1 : TUTORIAL</strong></p>
+<p>Watch this self-guided tutorial on Gulp to optimize assets like images and spinning up web server aspect; game engine called Phaser HTML5 engine for 2D structure framework; Angular JS and finally an IDE of your choice to build your own Candy Crush game.</p>
+<div class="onebox lazyYT lazyYT-container" data-youtube-id="Y7zTteVo7TM" data-youtube-title="How to Build a Candy Crush Game | Source Code included | kandi tutorial" data-parameters="feature=oembed&amp;wmode=opaque">
+  <a href="https://www.youtube.com/watch?v=Y7zTteVo7TM" target="_blank" rel="noopener">
+    <img class="ytp-thumbnail-image" src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/c1bfccf54d74917e6ab8e5d71f0f922740f5e3a4.jpeg" title="How to Build a Candy Crush Game | Source Code included | kandi tutorial" width="480" height="360">
+  </a>
+</div>
+
+<hr>
+<p><strong>STEP 2 : PRACTICAL EXERCISE</strong></p>
+<p>Click the below button to access the candy crush game kandi kit. This kit has all the required dependencies and resources you need to build your application.</p>
+<p>kandi 1click kits include JavaScript, HTML and helps you learn to use a toolkit called gulp, which uses Node.js platform, learn to develop HTML5 games for desktop as well as mobile using Phaser 2D game framework and create game-directives using AngularJS as well.</p>
+<p>Click on the 1-Click Installer button on the kandi kit page to install the candy crush game kit. On installing and running this kit, you will have a working model that you can customize and use in your project.</p>
+<p><a href="https://kandi.openweaver.com/collections/gaming/candy-crush"><img src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/5/53c3b6ee26f0df0f295ef0bb555be4b86f965ea6.png" alt="kandi 1-Click Kit - Dark" data-base62-sha1="bX0WGF9nESKFRAyRgssRAqMtRHg" width="221" height="40"></a></p>
+<p>After completing this step, proceed to STEP 3.</p>
+<hr>
+<p><strong>STEP 3 : ASSESSMENT</strong></p>
+<p>Complete a short assessment and earn your certificate now. <img src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/3549ad794905261371b743083a675d86e569cdbd.png" alt="Congrats" data-base62-sha1="7Bp9TeYTrErMVKlOrrtTRixMxK5" width="43" height="43"><br>
+<a href="https://forms.gle/vgzmNV5niKjfJskG8"><img src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/5/5b37078a7e828a294b3dc58cc5c3f9fa24ed3a8a.png" alt="Take Assessment" data-base62-sha1="d0VlGVTT1veBeS2ycFSTMn6lIDg" width="221" height="40"></a></p>
+<p>Your assessment will be reviewed and you will receive a verified certificate via email within a week.</p>
+<hr>
+<p><strong>SUPPORT</strong></p>
+<p>Reach out to us by replying below for any help you may need with this course.</p>
+<p>We hope you enjoyed using kandi! Continue your learning journey with kandi <img src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/3549ad794905261371b743083a675d86e569cdbd.png" alt="Congrats" data-base62-sha1="7Bp9TeYTrErMVKlOrrtTRixMxK5" width="43" height="43"><br>
+<br><br>
+<strong>EXPLORE MORE TOPICS:</strong></p>
+<p><a href="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-2048-interactive-puzzle-game-using-node-js/1542/1"><img src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/3/3b90133de391b5e6c2229b62eb3b694ca08caa45.jpeg" alt="2048 Game" data-base62-sha1="8uUQIOWcLm8uxn5fPQuh4aAdmV7" width="234" height="197"></a> <a href="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-angry-birds-game-in-python-using-pygame/1544/1"><img src="https://global.discourse-cdn.com/business7/uploads/openweaver/original/2X/f/fe784a93b144c018123cfa4407518cbe0e98ea13.jpeg" alt="Angry Birds" data-base62-sha1="Aj901Jix3DrknTdwnjvjkm7AJSX" width="234" height="197"></a></p>
+        </div>
+
+        <meta itemprop='headline' content='Learn how to Develop a Gaming app like Candy Crush Using JavaScript'>
+          <meta itemprop='keywords' content='open-source-project'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="10" />
+           <span class='post-likes'>10 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a itemprop='url' href="https://community.openweaver.com/t/rewind-2022-kandi-from-open-weaver/13900">Rewind 2022 - kandi from Open Weaver</a>
+                    <meta itemprop='position' content='7'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_27' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Open Weaver'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://global.discourse-cdn.com/business7/uploads/openweaver/original/1X/5d6f754f78bc6bd744a6b83bdea25906a4bc4b64.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://community.openweaver.com/u/OpenWeaver'><span itemprop='name'>OpenWeaver</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://community.openweaver.com/t/learn-how-to-develop-a-gaming-app-like-candy-crush-using-javascript/1541">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2023-01-10T08:25:14Z' class='post-time'>
+                January 10, 2023,  8:25am
+              </time>
+              <meta itemprop='dateModified' content='2023-01-10T08:25:14Z'>
+          <span itemprop='position'>27</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you have completed and submitted the assessment, you will receive your certificate <strong>via email</strong> (from <a href="mailto:kandi@openweaver.com">kandi@openweaver.com</a>) within <strong>7 business days</strong> from assessment submission.</p>
+        </div>
+
+        <meta itemprop='headline' content='Learn how to Develop a Gaming app like Candy Crush Using JavaScript'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+        <!-- :preload-content -->
+      </div>
+
+      <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    </noscript>
+
+      <div id="top-navbar">
+<div class="wrap">
+   <span id="top-navbar-links">
+     <a href="https://openweaver.com/" target="_blank"><img src="https://cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/business7/uploads/openweaver/original/2X/2/2edb3276b973cd4697d6affaf95c4c9470185f38.png"></a>
+     <a href="https://kandi.openweaver.com/" target="_blank"><img src="https://cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/standard11/uploads/kandi1/original/1X/529fd2a743544db0591f4f0377a4edba287c4f46.png"></a>
+     <a class="active" href="https://community.openweaver.com/"><img src="https://cdck-file-uploads-global.s3.dualstack.us-west-2.amazonaws.com/standard11/uploads/kandi1/original/1X/73e2231ec5bd92bec63ac998fb729acf4e0f6444.png"></a>
+   </span>
+   </div>
+ </div>
+<div class="background-container"></div>
+
+
+      
+
+    <section id='main'>
+    </section>
+
+      <form id='hidden-login-form' method="post" action="/login" style="display: none;">
+        <input name="username" type="text"     id="signin_username">
+        <input name="password" type="password" id="signin_password">
+        <input name="redirect" type="hidden">
+        <input type="submit" id="signin-button" value="Log In">
+      </form>
+
+    <script defer src="https://global.discourse-cdn.com/business7/assets/start-discourse-828d11e331bbb2c63061d9ce5c7616d6d724c717cf56f1b7090efcde9ad47664.br.js"></script>
+
+    
+
+    <script defer src="https://global.discourse-cdn.com/business7/assets/browser-update-331e86c77ddeff594308c27802669aeffae5f4ffddf9565a44e67d119278ae51.br.js"></script>
+
+      
+
+      
+  </body>
+</html>
